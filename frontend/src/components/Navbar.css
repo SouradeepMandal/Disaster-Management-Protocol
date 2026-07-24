@@ -1,0 +1,37 @@
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding: 20px 50px;
+
+    background:#0B1E3D;
+}
+.logo{
+    color:white;
+}
+.nav-links{
+    display:flex;
+    gap:30px;
+    
+    list-style:none;
+
+    color:white;
+
+    cursor:pointer;
+}
+.report-btn{
+    background:red;
+
+    color:white;
+
+    border:none;
+
+    padding: 12px 20px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+}
