@@ -13,6 +13,29 @@ function Hero(){
                     Manage disasters,rescue teams, and emergency response from one intelligent platform
                 </p>
                 <div className="hero-buttons">
+                    <div className="hero-stats">
+
+                        <div className="stat-card">
+                            <h2>128</h2>
+                            <p>🚨 Active Incidents</p>
+                        </div>
+
+                        <div className="stat-card">
+                            <h2>56</h2>
+                            <p>🚑 Rescue Teams</p>
+                        </div>
+
+                        <div className="stat-card">
+                            <h2>342</h2>
+                            <p>🏥 Safe Shelters</p>
+                        </div>
+
+                        <div className="stat-card">
+                            <h2>24/7</h2>
+                            <p>🤖 AI Monitoring</p>
+                        </div>
+
+                    </div>
                     <button className="primary-btn">Report Incident</button>
                     <button className="secondary-btn">Explore Dashboard</button>
                 </div>
