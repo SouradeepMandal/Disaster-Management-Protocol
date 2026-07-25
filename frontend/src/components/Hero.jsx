@@ -4,6 +4,10 @@ function Hero(){
     return(
         <section className="hero">
             <div className="hero-text">
+                <div className="status-badge">
+                <span className="status-dot"></span>
+                AI Monitoring Active    
+                </div>
                 <h1>AI Disaster Management Platform</h1>
                 <p>
                     Manage disasters,rescue teams, and emergency response from one intelligent platform
