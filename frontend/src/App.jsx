@@ -1,11 +1,16 @@
-import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
-function App(){
-  return(
+import Hero from "./components/Hero";
+import Features from "./components/Features";
+import Dashboard from "./components/Dashboard";
+function App() {
+  return (
     <>
-    <Navbar />
-    <Hero/>
+      <Navbar />
+      <Hero />
+      <Features />
+      <Dashboard/>
     </>
   );
 }
+
 export default App;

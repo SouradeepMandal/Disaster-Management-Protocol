@@ -1,0 +1,1714 @@
+/*====================================================
+ GOOGLE FONT
+=====================================================*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+/*====================================================
+ DASHBOARD
+=====================================================*/
+
+.dashboard{
+
+    position:relative;
+
+    width:100%;
+    min-height:100vh;
+
+    padding:90px 8%;
+
+    color:white;
+
+    background:
+    radial-gradient(circle at top,#10244a 0%,#08111f 40%,#040914 100%);
+
+    overflow:hidden;
+}
+
+
+/*====================================================
+ ANIMATED DOT GRID
+=====================================================*/
+
+.dashboard::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+
+    radial-gradient(
+    rgba(0,200,255,.18) 1px,
+    transparent 1px);
+
+    background-size:34px 34px;
+
+    opacity:.45;
+
+    pointer-events:none;
+}
+
+
+/*====================================================
+ GLOW EFFECT
+=====================================================*/
+
+.dashboard::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:600px;
+    height:600px;
+
+    background:#00bfff;
+
+    filter:blur(180px);
+
+    opacity:.10;
+
+    top:-220px;
+    left:-180px;
+
+    pointer-events:none;
+}
+
+
+/*====================================================
+ HEADER
+=====================================================*/
+
+.dashboard-header{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    margin-bottom:70px;
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+/*====================================================
+ LIVE BADGE
+=====================================================*/
+
+.live-status{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:12px 30px;
+
+    border-radius:50px;
+
+    background:rgba(35,255,120,.08);
+
+    border:1px solid rgba(35,255,120,.25);
+
+    color:#2dff68;
+
+    font-size:.9rem;
+
+    letter-spacing:1px;
+
+    font-weight:600;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+
+    0 0 25px rgba(35,255,120,.15);
+
+}
+
+
+/*====================================================
+ LIVE DOT
+=====================================================*/
+
+.live-dot{
+
+    width:12px;
+    height:12px;
+
+    border-radius:50%;
+
+    background:#2dff68;
+
+    box-shadow:
+    0 0 15px #2dff68,
+    0 0 30px #2dff68;
+
+    animation:pulse 1.2s infinite;
+}
+
+@keyframes pulse{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.5);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+
+/*====================================================
+ MAIN TITLE
+=====================================================*/
+
+.header-left{
+
+    position:relative;
+
+}
+
+.header-left h2{
+
+    margin-top:30px;
+
+    font-size:4.3rem;
+
+    font-weight:800;
+
+    line-height:1.15;
+
+    background:
+
+    linear-gradient(
+    90deg,
+    #00e5ff,
+    #2196f3,
+    #7c4dff);
+    background-clip: text;
+    -webkit-background-clip:text;
+    color: transparent;
+    -webkit-text-fill-color:transparent;
+
+    text-shadow:
+
+    0 0 35px rgba(0,170,255,.30);
+
+}
+
+
+/*====================================================
+ BLUE LIGHT UNDER TITLE
+=====================================================*/
+
+.header-left::after{
+
+content:"";
+
+position:absolute;
+
+left:50%;
+
+transform:translateX(-50%);
+
+bottom:-18px;
+
+width:520px;
+
+height:7px;
+
+border-radius:50px;
+
+background:#2196f3;
+
+filter:blur(10px);
+
+opacity:.9;
+
+}
+
+
+/*====================================================
+ SUBTITLE
+=====================================================*/
+
+.header-left p{
+
+margin-top:38px;
+
+font-size:1.35rem;
+
+color:#d2d9e5;
+
+font-weight:400;
+
+max-width:900px;
+
+line-height:1.7;
+
+}
+
+
+/*====================================================
+ HEADER INFO CARDS
+=====================================================*/
+
+.header-right{
+
+display:flex;
+
+gap:30px;
+
+margin-top:55px;
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+}
+
+.info-card{
+
+display:flex;
+
+align-items:center;
+
+gap:20px;
+
+padding:25px 35px;
+
+min-width:320px;
+
+background:
+
+rgba(18,35,63,.70);
+
+border:
+
+1px solid rgba(0,180,255,.18);
+
+backdrop-filter:blur(15px);
+
+border-radius:22px;
+
+box-shadow:
+
+0 10px 35px rgba(0,0,0,.35);
+
+transition:.35s;
+
+}
+
+.info-card:hover{
+
+transform:translateY(-10px);
+
+border-color:#1dbfff;
+
+box-shadow:
+
+0 0 25px rgba(29,191,255,.35);
+
+}
+
+.info-icon{
+
+font-size:2.5rem;
+
+color:#00d9ff;
+
+}
+
+.info-card h4{
+
+font-size:1.25rem;
+
+margin-bottom:5px;
+
+}
+
+.info-card span{
+
+font-size:1rem;
+
+color:#bfc8d6;
+
+}
+/*====================================================
+ METRICS GRID
+=====================================================*/
+
+.metrics-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:30px;
+
+    margin-bottom:70px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+/*====================================================
+ METRIC CARD
+=====================================================*/
+
+.metric-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:30px;
+
+    border-radius:24px;
+
+    background:
+    rgba(15,28,52,.78);
+
+    backdrop-filter:blur(18px);
+
+    border:
+    1px solid rgba(0,180,255,.12);
+
+    box-shadow:
+
+    0 15px 35px rgba(0,0,0,.35);
+
+    transition:.45s;
+
+    cursor:pointer;
+
+}
+
+
+/*====================================================
+ TOP GLOW
+=====================================================*/
+
+.metric-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:100%;
+    height:3px;
+
+    background:
+
+    linear-gradient(
+    90deg,
+    transparent,
+    #00d9ff,
+    transparent);
+
+}
+
+
+/*====================================================
+ HOVER
+=====================================================*/
+
+.metric-card:hover{
+
+    transform:
+    translateY(-12px);
+
+    border-color:#00d9ff;
+
+    box-shadow:
+
+    0 0 25px rgba(0,217,255,.18),
+
+    0 20px 45px rgba(0,0,0,.45);
+
+}
+
+
+/*====================================================
+ ICON BOX
+=====================================================*/
+
+.metric-icon{
+
+    width:78px;
+
+    height:78px;
+
+    border-radius:20px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:2.3rem;
+
+    margin-bottom:28px;
+
+}
+
+
+/*====================================================
+ ICON COLORS
+=====================================================*/
+
+.emergency{
+
+background:
+rgba(255,59,92,.12);
+
+color:#ff4b6e;
+
+box-shadow:
+0 0 18px rgba(255,59,92,.25);
+
+}
+
+.ambulance{
+
+background:
+rgba(0,153,255,.12);
+
+color:#2196f3;
+
+box-shadow:
+0 0 18px rgba(33,150,243,.25);
+
+}
+
+.hospital{
+
+background:
+rgba(46,255,113,.10);
+
+color:#2dff68;
+
+box-shadow:
+0 0 18px rgba(46,255,113,.20);
+
+}
+
+.response{
+
+background:
+rgba(167,83,255,.12);
+
+color:#a855f7;
+
+box-shadow:
+0 0 18px rgba(168,85,247,.25);
+
+}
+
+
+/*====================================================
+ NUMBER
+=====================================================*/
+
+.metric-content h3{
+
+font-size:3rem;
+
+font-weight:700;
+
+margin-bottom:6px;
+
+}
+
+
+/*====================================================
+ TITLE
+=====================================================*/
+
+.metric-content h4{
+
+font-size:1.2rem;
+
+font-weight:600;
+
+margin-bottom:10px;
+
+color:white;
+
+}
+
+
+/*====================================================
+ SUBTITLE
+=====================================================*/
+
+.metric-content p{
+
+font-size:1rem;
+
+color:#b9c5d8;
+
+}
+
+
+/*====================================================
+ CARD BORDER GLOW
+=====================================================*/
+
+.metric-card:nth-child(1){
+
+border-color:
+rgba(255,59,92,.18);
+
+}
+
+.metric-card:nth-child(2){
+
+border-color:
+rgba(33,150,243,.18);
+
+}
+
+.metric-card:nth-child(3){
+
+border-color:
+rgba(46,255,113,.18);
+
+}
+
+.metric-card:nth-child(4){
+
+border-color:
+rgba(168,85,247,.18);
+
+}
+
+
+/*====================================================
+ RESPONSIVE
+=====================================================*/
+
+@media(max-width:900px){
+
+.metrics-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.metric-card{
+
+padding:25px;
+
+}
+
+.metric-content h3{
+
+font-size:2.4rem;
+
+}
+
+}
+/*====================================================
+MAIN DASHBOARD
+=====================================================*/
+
+.dashboard-main{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:35px;
+
+    margin-bottom:70px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.dashboard-left,
+.dashboard-right{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:30px;
+
+}
+
+
+/*====================================================
+COMMON PANEL
+=====================================================*/
+
+.panel{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:30px;
+
+    border-radius:24px;
+
+    background:
+    rgba(15,28,52,.78);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(0,180,255,.12);
+
+    box-shadow:
+    0 18px 40px rgba(0,0,0,.35);
+
+    transition:.4s;
+
+}
+
+.panel:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#00d9ff;
+
+    box-shadow:
+    0 0 25px rgba(0,217,255,.18),
+    0 18px 45px rgba(0,0,0,.45);
+
+}
+
+.panel::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:100%;
+    height:2px;
+
+    background:
+    linear-gradient(
+    90deg,
+    transparent,
+    #00d9ff,
+    transparent);
+
+}
+
+
+/*====================================================
+PANEL HEADER
+=====================================================*/
+
+.panel-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:28px;
+
+}
+
+.panel-header h3{
+
+    font-size:1.3rem;
+
+    font-weight:600;
+
+}
+
+.status{
+
+    padding:8px 18px;
+
+    border-radius:40px;
+
+    font-size:.8rem;
+
+    font-weight:600;
+
+}
+
+.status.live{
+
+    background:rgba(46,255,113,.12);
+
+    color:#2dff68;
+
+}
+
+.status.ai{
+
+    background:rgba(0,180,255,.15);
+
+    color:#00d9ff;
+
+}
+
+
+/*====================================================
+LIVE MAP
+=====================================================*/
+
+.india-map{
+
+    position:relative;
+
+    height:420px;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    background:
+    radial-gradient(circle at center,#16345f,#09101f);
+
+}
+/*=========================================
+ INDIA SVG
+=========================================*/
+
+.india-svg{
+
+    width:70%;
+
+    max-width:420px;
+
+    z-index:2;
+
+}
+
+.india-outline{
+
+    fill:rgba(0,170,255,.10);
+
+    stroke:#00d9ff;
+
+    stroke-width:4;
+
+    stroke-linejoin:round;
+
+    filter:drop-shadow(0 0 18px rgba(0,217,255,.45));
+
+}
+
+
+/*=========================================
+ MAP GLOW
+=========================================*/
+
+.map-glow{
+
+    position:absolute;
+
+    width:420px;
+
+    height:420px;
+
+    border-radius:50%;
+
+    background:#00bfff;
+
+    filter:blur(120px);
+
+    opacity:.12;
+
+}
+
+
+/*=========================================
+ CITY MARKERS
+=========================================*/
+
+.pulse{
+
+    width:16px;
+
+    height:16px;
+
+    background:#ff3b5d;
+
+    border-radius:50%;
+
+    position:absolute;
+
+    z-index:5;
+
+    animation:cityPulse 2s infinite;
+
+    box-shadow:
+    0 0 12px #ff3b5d;
+
+}
+
+.pulse::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-8px;
+
+    border:2px solid rgba(255,59,93,.45);
+
+    border-radius:50%;
+
+}
+
+
+/*=========================================
+ CITY POSITIONS
+=========================================*/
+
+.pulse-delhi{
+
+    top:26%;
+
+    left:48%;
+
+}
+
+.pulse-mumbai{
+
+    top:47%;
+
+    left:38%;
+
+}
+
+.pulse-kolkata{
+
+    top:40%;
+
+    left:66%;
+
+}
+
+.pulse-chennai{
+
+    top:72%;
+
+    left:58%;
+
+}
+
+.pulse-bengaluru{
+
+    top:65%;
+
+    left:48%;
+
+}
+
+@keyframes cityPulse{
+
+0%{
+
+transform:scale(.8);
+
+opacity:1;
+
+}
+
+50%{
+
+transform:scale(1.6);
+
+opacity:.45;
+
+}
+
+100%{
+
+transform:scale(.8);
+
+opacity:1;
+
+}
+
+}
+
+
+/*====================================================
+GRID
+=====================================================*/
+
+.grid-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+
+    linear-gradient(
+    rgba(255,255,255,.05) 1px,
+    transparent 1px),
+
+    linear-gradient(
+    90deg,
+    rgba(255,255,255,.05) 1px,
+    transparent 1px);
+
+    background-size:40px 40px;
+
+}
+
+
+/*====================================================
+MAP TEXT
+=====================================================*/
+
+.india-map h2{
+
+    font-size:4rem;
+
+    letter-spacing:8px;
+
+    color:white;
+
+    z-index:2;
+
+}
+
+.india-map p{
+
+    margin-top:12px;
+
+    color:#c6d2e4;
+
+    z-index:2;
+
+}
+
+
+/*====================================================
+INCIDENT DOTS
+=====================================================*/
+
+.pulse{
+
+    position:absolute;
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    background:#ff3d5d;
+
+    animation:incident 2s infinite;
+
+}
+
+.pulse::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-8px;
+
+    border-radius:50%;
+
+    border:2px solid rgba(255,61,93,.35);
+
+}
+
+.pulse-one{
+
+    top:22%;
+    left:28%;
+
+}
+
+.pulse-two{
+
+    top:40%;
+    right:25%;
+
+}
+
+.pulse-three{
+
+    bottom:22%;
+    left:40%;
+
+}
+
+.pulse-four{
+
+    top:60%;
+    right:38%;
+
+}
+
+@keyframes incident{
+
+0%{
+
+transform:scale(.9);
+
+opacity:1;
+
+}
+
+50%{
+
+transform:scale(1.5);
+
+opacity:.5;
+
+}
+
+100%{
+
+transform:scale(.9);
+
+opacity:1;
+
+}
+
+}
+
+
+/*====================================================
+AI PANEL
+=====================================================*/
+
+.prediction-chart{
+
+    height:200px;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    gap:14px;
+
+    margin-bottom:28px;
+
+}
+
+.bar{
+
+    flex:1;
+
+    border-radius:14px 14px 0 0;
+
+    background:
+    linear-gradient(
+    to top,
+    #0066ff,
+    #00d9ff);
+
+    transition:.35s;
+
+}
+
+.bar:hover{
+
+    transform:scaleY(1.08);
+
+}
+
+.prediction-text h3{
+
+    margin-bottom:12px;
+
+    font-size:1.4rem;
+
+}
+
+.prediction-text p{
+
+    color:#b8c5d8;
+
+    line-height:1.8;
+
+}
+
+
+/*====================================================
+ALERTS
+=====================================================*/
+
+.alerts-panel{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.alert-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    transition:.35s;
+
+    border-left:5px solid transparent;
+
+}
+
+.alert-card:hover{
+
+    transform:translateX(8px);
+
+}
+
+.critical{
+
+    background:rgba(255,61,93,.12);
+
+    border-left-color:#ff3d5d;
+
+}
+
+.warning{
+
+    background:rgba(255,166,0,.12);
+
+    border-left-color:#ffaa00;
+
+}
+
+.moderate{
+
+    background:rgba(255,221,87,.12);
+
+    border-left-color:#ffdd57;
+
+}
+
+.info{
+
+    background:rgba(0,180,255,.12);
+
+    border-left-color:#00d9ff;
+
+}
+
+.alert-card h4{
+
+    margin-bottom:5px;
+
+}
+
+.alert-card p{
+
+    color:#b8c5d8;
+
+    font-size:.9rem;
+
+}
+
+
+/*====================================================
+RESPONSIVE
+=====================================================*/
+
+@media(max-width:1100px){
+
+.dashboard-main{
+
+grid-template-columns:1fr;
+
+}
+
+.india-map{
+
+height:350px;
+
+}
+
+}
+/*====================================================
+ WEATHER PANEL
+=====================================================*/
+
+.weather-panel{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.weather-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 22px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.05);
+
+    transition:.35s;
+
+}
+
+.weather-item:hover{
+
+    transform:translateX(8px);
+
+    background:rgba(0,217,255,.10);
+
+    border-color:#00d9ff;
+
+}
+
+.weather-item span{
+
+    color:#cbd5e1;
+
+}
+
+.weather-item strong{
+
+    color:white;
+
+    font-size:1.1rem;
+
+}
+
+
+/*====================================================
+ RESOURCE PANEL
+=====================================================*/
+
+.resources-panel{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:24px;
+
+}
+
+.resource{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.resource-title{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    font-weight:600;
+
+}
+
+.resource-title span:last-child{
+
+    color:#00d9ff;
+
+}
+
+.resource-bar{
+
+    height:12px;
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.fill{
+
+    height:100%;
+
+    border-radius:20px;
+
+    position:relative;
+
+}
+
+.fill::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+    90deg,
+    rgba(255,255,255,.45),
+    transparent);
+
+}
+
+.ambulance-fill{
+
+    width:88%;
+
+    background:linear-gradient(90deg,#2196f3,#00d9ff);
+
+}
+
+.fire-fill{
+
+    width:73%;
+
+    background:linear-gradient(90deg,#ff7b00,#ffc107);
+
+}
+
+.medical-fill{
+
+    width:94%;
+
+    background:linear-gradient(90deg,#22c55e,#4ade80);
+
+}
+
+.helicopter-fill{
+
+    width:62%;
+
+    background:linear-gradient(90deg,#8b5cf6,#c084fc);
+
+}
+
+
+/*====================================================
+ ANALYTICS FOOTER
+=====================================================*/
+
+.analytics-footer{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:30px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.analytics-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:35px;
+
+    border-radius:24px;
+
+    background:rgba(15,28,52,.80);
+
+    border:1px solid rgba(0,180,255,.12);
+
+    backdrop-filter:blur(18px);
+
+    transition:.4s;
+
+}
+
+.analytics-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:3px;
+
+    background:linear-gradient(
+    90deg,
+    #00d9ff,
+    #3b82f6,
+    #7c4dff);
+
+}
+
+.analytics-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:
+
+    0 0 30px rgba(0,217,255,.20),
+
+    0 20px 40px rgba(0,0,0,.45);
+
+}
+
+.analytics-card h4{
+
+    color:#9fb4d4;
+
+    margin-bottom:18px;
+
+    font-size:1rem;
+
+}
+
+.analytics-card h2{
+
+    font-size:2.4rem;
+
+    font-weight:700;
+
+    background:linear-gradient(
+    90deg,
+    #00d9ff,
+    #60a5fa);
+
+    background-clip: text;
+    -webkit-background-clip:text;
+
+    color: transparent;
+    -webkit-text-fill-color:transparent;
+
+}
+
+
+/*====================================================
+ FLOATING GLOW
+=====================================================*/
+
+.analytics-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+
+    height:220px;
+
+    background:#00d9ff;
+
+    right:-120px;
+
+    bottom:-120px;
+
+    border-radius:50%;
+
+    filter:blur(90px);
+
+    opacity:.08;
+
+}
+
+
+/*====================================================
+ CUSTOM SCROLLBAR
+=====================================================*/
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#07111f;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#0ea5e9;
+
+    border-radius:30px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#38bdf8;
+
+}
+
+
+/*====================================================
+ RESPONSIVE
+=====================================================*/
+
+@media(max-width:900px){
+
+.dashboard{
+
+padding:70px 6%;
+
+}
+
+.header-left h2{
+
+font-size:2.6rem;
+
+}
+
+.header-left::after{
+
+width:260px;
+
+}
+
+.info-card{
+
+min-width:100%;
+
+}
+
+.analytics-footer{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.dashboard{
+
+padding:60px 5%;
+
+}
+
+.header-left h2{
+
+font-size:2rem;
+
+}
+
+.header-left p{
+
+font-size:1rem;
+
+}
+
+.metric-card{
+
+padding:24px;
+
+}
+
+.panel{
+
+padding:22px;
+
+}
+
+.india-map{
+
+height:280px;
+
+}
+
+.india-map h2{
+
+font-size:2.2rem;
+
+letter-spacing:3px;
+
+}
+
+.prediction-chart{
+
+height:150px;
+
+}
+
+}
