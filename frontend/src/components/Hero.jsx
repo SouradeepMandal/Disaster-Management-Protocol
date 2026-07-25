@@ -1,10 +1,24 @@
+import "./Hero.css";
+import heroImage from "../assets/hero.png";
 function Hero(){
     return(
-        <section>
-            <h1>AI Disaster Management Platform</h1>
-            <p>Manage Disasters, rescue teams, and emergency response from one intelligent Platform</p>
-            <button>Report Incident</button>
-            <button>Explore Dashboard</button>
+        <section className="hero">
+            <div className="hero-text">
+                <h1>AI Disaster Management Platform</h1>
+                <p>
+                    Manage disasters,rescue teams, and emergency response from one intelligent platform
+                </p>
+                <div className="hero-buttons">
+                    <button className="primary-btn">Report Incident</button>
+                    <button className="secondary-btn">Explore Dashboard</button>
+                </div>
+            </div>
+            <div className="hero-image">
+                <img 
+                    src={heroImage}
+                    alt="Disaster Management"
+                    />
+            </div>
         </section>
     );
 }
