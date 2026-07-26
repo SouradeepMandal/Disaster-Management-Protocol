@@ -1,47 +1,115 @@
-/* =========================
-   INDIA MAP CONTAINER
-========================= */
+/* ==========================================================
+   DISASTER MANAGEMENT PROTOCOL SYSTEM
+   INDIA MAP STYLES
+========================================================== */
 
-.india-map {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    min-height: 520px;
+*{
+    box-sizing:border-box;
+}
 
-    display: flex;
-    flex-direction: column;
+/* ==========================================================
+   MAIN CONTAINER
+========================================================== */
 
-    border-radius: 24px;
+.india-map{
 
-    overflow: hidden;
+    position:relative;
+
+    width:100%;
+    height:100%;
+    min-height:520px;
+
+    display:flex;
+    flex-direction:column;
+
+    overflow:hidden;
+
+    border-radius:24px;
 
     background:
         radial-gradient(circle at top,
             rgba(0,140,255,.18),
-            transparent 45%),
-
+            transparent 42%),
         linear-gradient(
             180deg,
-            #081322,
-            #091b31,
-            #07121f
+            #07111f 0%,
+            #09192d 55%,
+            #050d18 100%
         );
 
-    border: 1px solid rgba(0,170,255,.25);
+    border:1px solid rgba(0,180,255,.22);
 
     box-shadow:
-        0 0 40px rgba(0,170,255,.12),
-        inset 0 0 40px rgba(255,255,255,.03);
+        inset 0 0 30px rgba(255,255,255,.03),
+        0 0 40px rgba(0,170,255,.12);
 }
 
-/* =========================
+/* ==========================================================
+   AMBIENT LIGHT
+========================================================== */
+
+.india-map::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:430px;
+    height:430px;
+
+    right:-130px;
+    top:-120px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            rgba(0,180,255,.20),
+            transparent 70%
+        );
+
+    filter:blur(45px);
+
+    pointer-events:none;
+
+}
+
+.india-map::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
+    left:-80px;
+    bottom:-80px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            rgba(0,255,170,.15),
+            transparent 70%
+        );
+
+    filter:blur(55px);
+
+    pointer-events:none;
+
+}
+
+/* ==========================================================
    HEADER
-========================= */
+========================================================== */
 
 .map-header{
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
     padding:22px 28px;
@@ -49,6 +117,7 @@
     border-bottom:1px solid rgba(255,255,255,.08);
 
     backdrop-filter:blur(12px);
+
 }
 
 .map-header h3{
@@ -57,19 +126,22 @@
 
     font-size:24px;
 
-    margin-bottom:5px;
+    margin:0;
+
 }
 
 .map-header p{
 
-    color:#7ea6c8;
+    margin-top:6px;
+
+    color:#83accd;
 
     font-size:14px;
-}
 
-/* =========================
+}
+/* ==========================================================
    AI STATUS
-========================= */
+========================================================== */
 
 .ai-status{
 
@@ -77,19 +149,24 @@
 
     align-items:center;
 
-    gap:10px;
+    gap:12px;
 
     padding:10px 18px;
 
-    border-radius:50px;
+    border-radius:999px;
 
-    background:rgba(0,255,170,.12);
+    background:rgba(0,255,170,.10);
 
-    color:#5cffb2;
+    border:1px solid rgba(0,255,170,.15);
+
+    color:#57ffb5;
+
+    font-size:14px;
 
     font-weight:600;
 
-    letter-spacing:1px;
+    letter-spacing:.5px;
+
 }
 
 .status-dot{
@@ -99,20 +176,24 @@
 
     border-radius:50%;
 
-    background:#42ff89;
+    background:#43ff90;
 
-    box-shadow:0 0 15px #42ff89;
+    box-shadow:
+        0 0 10px #43ff90,
+        0 0 20px #43ff90;
 
-    animation:pulseStatus 1.5s infinite;
+    animation:statusPulse 1.5s infinite;
+
 }
 
-@keyframes pulseStatus{
+@keyframes statusPulse{
 
     0%{
 
         transform:scale(.9);
 
         opacity:.5;
+
     }
 
     50%{
@@ -120,6 +201,7 @@
         transform:scale(1.4);
 
         opacity:1;
+
     }
 
     100%{
@@ -127,12 +209,38 @@
         transform:scale(.9);
 
         opacity:.5;
+
     }
+
+}
+/* ==========================================================
+   MAIN CONTENT
+========================================================== */
+
+.map-content{
+
+    flex:1;
+
+    display:flex;
+
+    overflow:hidden;
+
 }
 
-/* =========================
+.map-section{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+/* ==========================================================
    MAP BODY
-========================= */
+========================================================== */
 
 .map-body{
 
@@ -145,401 +253,639 @@
     justify-content:center;
 
     align-items:center;
-}
-/* =========================
-   RADAR
-========================= */
-
-.radar-container{
-
-    position:absolute;
-
-    width:280px;
-    height:280px;
-
-    border-radius:50%;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.radar{
-
-    position:absolute;
-
-    width:100%;
-    height:100%;
-
-    border-radius:50%;
-
-    border:2px solid rgba(0,255,255,.18);
-
-    background:
-    repeating-radial-gradient(
-        circle,
-        rgba(0,255,255,.08) 0px,
-        rgba(0,255,255,.08) 2px,
-        transparent 2px,
-        transparent 35px
-    );
 
     overflow:hidden;
-}
 
-.radar::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:50%;
-    height:50%;
-
-    left:50%;
-    top:50%;
-
-    transform-origin:left top;
-
-    background:linear-gradient(
-        90deg,
-        rgba(0,255,255,.45),
-        transparent
-    );
-
-    animation:scan 5s linear infinite;
-}
-
-@keyframes scan{
-
-    from{
-        transform:rotate(0deg);
-    }
-
-    to{
-        transform:rotate(360deg);
-    }
+    padding:25px;
 
 }
 
-/* =========================
-   INDIA SVG
-========================= */
+/* ==========================================================
+   INDIA SVG CONTAINER
+========================================================== */
 
 .india-svg-container{
 
     position:relative;
 
-    width:360px;
-    height:430px;
+    width:420px;
 
-    z-index:3;
+    height:500px;
+
 }
+
+/* ==========================================================
+   SVG
+========================================================== */
 
 .india-svg{
 
+    position:absolute;
+
+    inset:0;
+
     width:100%;
+
     height:100%;
+
+    z-index:5;
+
 }
 
 .india-outline{
 
-    fill:rgba(0,150,255,.08);
+    fill:rgba(0,170,255,.08);
 
-    stroke:#27d6ff;
+    stroke:#33d9ff;
 
-    stroke-width:4;
+    stroke-width:3;
 
     filter:
-        drop-shadow(0 0 10px #00b7ff)
-        drop-shadow(0 0 25px #00b7ff);
+        drop-shadow(0 0 10px rgba(0,220,255,.8))
+        drop-shadow(0 0 25px rgba(0,220,255,.5));
 
-    transition:.4s;
+    transition:.35s ease;
+
 }
 
 .india-outline:hover{
 
-    fill:rgba(0,180,255,.18);
+    fill:rgba(0,200,255,.14);
 
-    stroke:#58f2ff;
+    stroke:#72f3ff;
+
 }
 
-/* =========================
-   CITY MARKERS
-========================= */
+/* ==========================================================
+   CONNECTION LAYER
+========================================================== */
 
-.city{
+.connection-svg{
 
     position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+    pointer-events:none;
+
+    z-index:9;
+
+}
+/* ==========================================================
+   CITY MARKERS
+========================================================== */
+
+.city-marker{
+
+    position:absolute;
+
+    transform:translate(-50%,-50%);
+
+    cursor:pointer;
+
+    z-index:20;
+
+    transition:
+        transform .25s ease,
+        filter .25s ease;
+
+}
+
+.city-marker:hover{
+
+    transform:translate(-50%,-50%) scale(1.15);
+
+    z-index:120;
+
+}
+
+/* ==========================================================
+   PULSE RING
+========================================================== */
+
+.city-pulse{
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:16px;
+    height:16px;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    border:2px solid rgba(0,255,255,.70);
+
+    animation:markerPulse 2.2s infinite;
+
+}
+
+@keyframes markerPulse{
+
+    0%{
+
+        width:16px;
+        height:16px;
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        width:46px;
+        height:46px;
+
+        opacity:0;
+
+    }
+
+}
+
+/* ==========================================================
+   CITY DOT
+========================================================== */
+
+.city-dot{
+
+    position:relative;
 
     width:14px;
     height:14px;
 
     border-radius:50%;
 
-    background:#ff3b3b;
+    border:2px solid rgba(255,255,255,.9);
 
-    border:3px solid white;
+    z-index:5;
 
-    box-shadow:
-        0 0 12px red,
-        0 0 25px red;
+    transition:all .25s ease;
 
-    animation:cityPulse 2s infinite;
-
-    cursor:pointer;
 }
 
-.city:hover{
+/* ==========================================================
+   SEVERITY COLOURS
+========================================================== */
 
-    transform:scale(1.5);
+.city-marker.critical .city-dot{
+
+    background:#ff4040;
 
     box-shadow:
-        0 0 20px #ff4d4d,
-        0 0 40px red;
+        0 0 8px #ff4040,
+        0 0 18px #ff4040,
+        0 0 35px rgba(255,64,64,.8);
+
 }
 
-@keyframes cityPulse{
+.city-marker.critical .city-pulse{
+
+    border-color:rgba(255,64,64,.7);
+
+}
+
+.city-marker.warning .city-dot{
+
+    background:#ffc928;
+
+    box-shadow:
+        0 0 8px #ffc928,
+        0 0 18px #ffc928,
+        0 0 35px rgba(255,201,40,.8);
+
+}
+
+.city-marker.warning .city-pulse{
+
+    border-color:rgba(255,201,40,.7);
+
+}
+
+.city-marker.safe .city-dot{
+
+    background:#00ff9d;
+
+    box-shadow:
+        0 0 8px #00ff9d,
+        0 0 18px #00ff9d,
+        0 0 35px rgba(0,255,157,.8);
+
+}
+
+.city-marker.safe .city-pulse{
+
+    border-color:rgba(0,255,157,.7);
+
+}
+
+/* ==========================================================
+   HOVER EFFECT
+========================================================== */
+
+.city-marker:hover .city-dot{
+
+    box-shadow:
+        0 0 12px currentColor,
+        0 0 28px currentColor,
+        0 0 50px currentColor;
+
+}
+/* ==========================================================
+   TOOLTIP POSITIONING
+========================================================== */
+
+.city-tooltip{
+
+    position:absolute;
+
+    left:24px;
+
+    top:-18px;
+
+    z-index:120;
+
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.map-footer{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:18px;
+
+    padding:22px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    background:rgba(255,255,255,.02);
+
+    backdrop-filter:blur(14px);
+
+}
+
+/* ==========================================================
+   FOOTER CARDS
+========================================================== */
+
+.footer-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:22px;
+
+    border-radius:18px;
+
+    background:linear-gradient(
+        180deg,
+        rgba(255,255,255,.05),
+        rgba(255,255,255,.025)
+    );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    text-align:center;
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+
+}
+
+.footer-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    top:-120px;
+    right:-90px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+        rgba(0,195,255,.22),
+        transparent 70%
+    );
+
+    filter:blur(22px);
+
+    pointer-events:none;
+
+}
+
+.footer-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(0,220,255,.45);
+
+    box-shadow:
+        0 15px 35px rgba(0,170,255,.15),
+        inset 0 0 15px rgba(255,255,255,.04);
+
+}
+
+.footer-card h4{
+
+    margin:0 0 8px;
+
+    font-size:30px;
+
+    color:#39d9ff;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+}
+
+.footer-card span{
+
+    display:block;
+
+    color:#90b9d4;
+
+    font-size:14px;
+
+    letter-spacing:.4px;
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width:900px){
+
+    .map-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+
+    }
+
+    .map-footer{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .india-svg-container{
+
+        width:340px;
+
+        height:410px;
+
+    }
+
+}
+
+@media (max-width:600px){
+
+    .india-map{
+
+        min-height:650px;
+
+    }
+
+    .map-header{
+
+        padding:18px;
+
+    }
+
+    .map-body{
+
+        padding:15px;
+
+    }
+
+    .india-svg-container{
+
+        width:290px;
+
+        height:360px;
+
+    }
+
+}
+/* ==========================================================
+   PREMIUM COMMAND CENTER EFFECTS
+========================================================== */
+
+.india-map{
+
+    animation:dashboardGlow 10s ease-in-out infinite;
+
+}
+
+@keyframes dashboardGlow{
 
     0%{
 
-        transform:scale(1);
+        box-shadow:
+            inset 0 0 30px rgba(255,255,255,.03),
+            0 0 35px rgba(0,170,255,.10);
 
     }
 
     50%{
 
-        transform:scale(1.35);
+        box-shadow:
+            inset 0 0 35px rgba(255,255,255,.04),
+            0 0 55px rgba(0,210,255,.18);
 
     }
 
     100%{
 
-        transform:scale(1);
+        box-shadow:
+            inset 0 0 30px rgba(255,255,255,.03),
+            0 0 35px rgba(0,170,255,.10);
 
     }
 
 }
 
-/* Marker Positions */
+/* ==========================================================
+   MAP FLOATING EFFECT
+========================================================== */
 
-.delhi{
+.india-svg-container{
 
-    top:75px;
-    left:205px;
-
-}
-
-.mumbai{
-
-    top:190px;
-    left:135px;
+    animation:mapFloat 7s ease-in-out infinite;
 
 }
 
-.kolkata{
+@keyframes mapFloat{
 
-    top:165px;
-    left:270px;
+    0%{
 
-}
+        transform:translateY(0px);
 
-.bengaluru{
+    }
 
-    top:295px;
-    left:190px;
+    50%{
 
-}
+        transform:translateY(-8px);
 
-.chennai{
+    }
 
-    top:330px;
-    left:235px;
+    100%{
 
-}
-/* =========================
-   CITY LABELS
-========================= */
+        transform:translateY(0px);
 
-.city::after{
-
-    position:absolute;
-
-    left:18px;
-    top:-8px;
-
-    padding:4px 10px;
-
-    border-radius:8px;
-
-    background:rgba(7,22,40,.92);
-
-    border:1px solid rgba(0,170,255,.35);
-
-    color:white;
-
-    font-size:12px;
-
-    font-weight:600;
-
-    white-space:nowrap;
-
-    opacity:0;
-
-    transform:translateY(6px);
-
-    transition:.3s;
-
-    pointer-events:none;
-
-    box-shadow:0 0 18px rgba(0,170,255,.25);
-}
-
-.city:hover::after{
-
-    opacity:1;
-
-    transform:translateY(0);
-}
-
-.delhi::after{
-
-    content:"Delhi • Flood";
+    }
 
 }
 
-.mumbai::after{
+/* ==========================================================
+   SMOOTH HOVER
+========================================================== */
 
-    content:"Mumbai • Rescue";
+.city-marker{
 
-}
-
-.kolkata::after{
-
-    content:"Kolkata • Cyclone";
-
-}
-
-.bengaluru::after{
-
-    content:"Bengaluru • Medical";
+    transition:
+        transform .25s ease,
+        filter .25s ease,
+        opacity .25s ease;
 
 }
 
-.chennai::after{
+.city-marker:hover{
 
-    content:"Chennai • Storm";
+    filter:brightness(1.2);
+
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* ==========================================================
+   SVG GLOW
+========================================================== */
 
-.map-footer{
+.india-outline{
 
-    display:flex;
+    animation:mapPulse 5s ease-in-out infinite;
 
-    justify-content:space-around;
-
-    gap:20px;
-
-    padding:18px;
-
-    border-top:1px solid rgba(255,255,255,.08);
-
-    backdrop-filter:blur(12px);
 }
 
-.footer-card{
+@keyframes mapPulse{
 
-    flex:1;
+    0%{
 
-    text-align:center;
+        filter:
+            drop-shadow(0 0 8px rgba(0,220,255,.55))
+            drop-shadow(0 0 18px rgba(0,220,255,.35));
 
-    padding:18px;
+    }
 
-    border-radius:18px;
+    50%{
 
-    background:rgba(255,255,255,.04);
+        filter:
+            drop-shadow(0 0 16px rgba(0,255,255,.85))
+            drop-shadow(0 0 34px rgba(0,255,255,.55));
 
-    border:1px solid rgba(255,255,255,.06);
+    }
 
-    transition:.35s;
+    100%{
+
+        filter:
+            drop-shadow(0 0 8px rgba(0,220,255,.55))
+            drop-shadow(0 0 18px rgba(0,220,255,.35));
+
+    }
+
 }
 
-.footer-card:hover{
+/* ==========================================================
+   GLASS EFFECT
+========================================================== */
 
-    transform:translateY(-6px);
+.footer-card,
+.ai-status{
 
-    border-color:#00c8ff;
+    backdrop-filter:blur(16px);
 
-    box-shadow:0 0 24px rgba(0,200,255,.25);
+    -webkit-backdrop-filter:blur(16px);
+
 }
 
-.footer-card h4{
+/* ==========================================================
+   SMOOTH SCROLLBAR
+========================================================== */
 
-    color:#33d6ff;
+::-webkit-scrollbar{
 
-    font-size:28px;
+    width:8px;
 
-    margin-bottom:8px;
 }
 
-.footer-card span{
+::-webkit-scrollbar-track{
 
-    color:#8bb9d7;
+    background:#08111e;
 
-    font-size:14px;
 }
 
-/* =========================
-   AMBIENT GLOW
-========================= */
+::-webkit-scrollbar-thumb{
 
-.india-map::before{
+    background:#00bfff;
 
-    content:"";
+    border-radius:10px;
 
-    position:absolute;
-
-    width:420px;
-    height:420px;
-
-    border-radius:50%;
-
-    background:radial-gradient(
-        rgba(0,170,255,.18),
-        transparent 70%
-    );
-
-    top:-140px;
-    right:-120px;
-
-    filter:blur(40px);
-
-    pointer-events:none;
 }
 
-.india-map::after{
+::-webkit-scrollbar-thumb:hover{
 
-    content:"";
+    background:#3fdcff;
 
-    position:absolute;
-
-    width:300px;
-    height:300px;
-
-    border-radius:50%;
-
-    background:radial-gradient(
-        rgba(0,255,180,.12),
-        transparent 70%
-    );
-
-    bottom:-100px;
-    left:-80px;
-
-    filter:blur(50px);
-
-    pointer-events:none;
 }
+
+/* ==========================================================
+   SELECTION
+========================================================== */
+
+::selection{
+
+    background:#00bfff;
+
+    color:#ffffff;
+
+}
+
+/* ==========================================================
+   PERFORMANCE OPTIMISATION
+========================================================== */
+
+.city-marker,
+.connection-svg,
+.india-outline,
+.footer-card,
+.ai-status{
+
+    will-change:transform,opacity,filter;
+
+}
+
+/* ==========================================================
+   END OF FILE
+========================================================== */

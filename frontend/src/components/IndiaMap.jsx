@@ -1,102 +1,141 @@
+import { useState } from "react";
+
 import "./IndiaMap.css";
 
+import cityData from "./cityData";
+
+import CityMarker from "./CityMarker";
+import Radar from "./Radar";
+import ConnectionLines from "./ConnectionLines";
+import CommandPanel from "./CommandPanel";
+
 function IndiaMap() {
+
+  const [selectedCity, setSelectedCity] = useState(cityData[0]);
+
   return (
+
     <div className="india-map">
 
       <div className="map-header">
 
         <div>
-          <h3>🇮🇳 India Live Command Map</h3>
-          <p>AI Disaster Monitoring Network</p>
-        </div>
 
-        <div className="ai-status">
-          <span className="status-dot"></span>
-          AI ACTIVE
+          <h3>National Disaster Command Centre</h3>
+
+          <p>AI Powered Emergency Response Monitoring System</p>
+
         </div>
 
       </div>
 
-      <div className="map-body">
+      <div className="map-content">
 
-        {/* Radar */}
-        <div className="radar-container">
-          <div className="radar"></div>
+        <div className="map-section">
+
+          <div className="map-body">
+
+            <div className="india-svg-container">
+
+              <Radar />
+
+              <svg
+                className="india-svg"
+                viewBox="0 0 400 500"
+              >
+
+                <path
+                  className="india-outline"
+                  d="
+                    M247 27
+                    L220 50
+                    L200 95
+                    L215 145
+                    L170 180
+                    L160 235
+                    L180 300
+                    L210 365
+                    L235 430
+                    L250 470
+                    L275 450
+                    L285 390
+                    L305 330
+                    L325 260
+                    L300 185
+                    L285 120
+                    L260 70
+                    Z
+                  "
+                />
+
+              </svg>
+
+              <ConnectionLines />
+
+              {cityData.map((city)=>(
+
+                <CityMarker
+
+                  key={city.id}
+
+                  city={city}
+
+                  selected={selectedCity.id===city.id}
+
+                  onClick={()=>setSelectedCity(city)}
+
+                />
+
+              ))}
+
+            </div>
+
+          </div>
+
         </div>
 
-        {/* India Map */}
-        <div className="india-svg-container">
+        <CommandPanel
 
-          <svg
-            className="india-svg"
-            viewBox="0 0 512 512"
-          >
+          selectedCity={selectedCity}
 
-            <path
-              className="india-outline"
-              d="
-                M247 27
-                L220 50
-                L195 70
-                L178 103
-                L150 135
-                L162 170
-                L147 205
-                L160 248
-                L185 290
-                L205 332
-                L230 372
-                L248 430
-                L278 455
-                L304 445
-                L322 408
-                L338 360
-                L366 320
-                L392 280
-                L380 230
-                L396 180
-                L370 150
-                L338 110
-                L315 70
-                L285 45
-                Z
-              "
-            />
+          setSelectedCity={setSelectedCity}
 
-          </svg>
-
-          <div className="city delhi"></div>
-          <div className="city mumbai"></div>
-          <div className="city kolkata"></div>
-          <div className="city bengaluru"></div>
-          <div className="city chennai"></div>
-
-        </div>
+        />
 
       </div>
 
       <div className="map-footer">
 
         <div className="footer-card">
-          <h4>24</h4>
-          <span>Active Incidents</span>
+
+          <h4>18</h4>
+
+          <span>Emergency Teams</span>
+
         </div>
 
         <div className="footer-card">
-          <h4>96.8%</h4>
+
+          <h4>96%</h4>
+
           <span>AI Accuracy</span>
+
         </div>
 
         <div className="footer-card">
-          <h4>86</h4>
-          <span>Teams Ready</span>
+
+          <h4>4.8m</h4>
+
+          <span>Avg Response</span>
+
         </div>
 
       </div>
 
     </div>
+
   );
+
 }
 
 export default IndiaMap;

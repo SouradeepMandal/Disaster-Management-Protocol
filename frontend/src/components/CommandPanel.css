@@ -1,0 +1,290 @@
+/* ==========================================================
+   COMMAND PANEL
+========================================================== */
+
+.command-panel{
+
+    width:360px;
+
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    background:rgba(8,18,32,.95);
+
+    border-left:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    overflow:hidden;
+
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.command-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:22px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.command-header h2{
+
+    color:white;
+
+    font-size:22px;
+
+    margin:0;
+
+}
+
+.command-header p{
+
+    color:#87a9c5;
+
+    margin-top:6px;
+
+    font-size:13px;
+
+}
+
+/* ==========================================================
+   LIVE STATUS
+========================================================== */
+
+.live-status{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    background:rgba(0,255,170,.10);
+
+    border:1px solid rgba(0,255,170,.18);
+
+    color:#52ffb1;
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+.live-dot{
+
+    width:9px;
+
+    height:9px;
+
+    border-radius:50%;
+
+    background:#39ff8f;
+
+    box-shadow:0 0 12px #39ff8f;
+
+    animation:livePulse 1.5s infinite;
+
+}
+
+@keyframes livePulse{
+
+    0%{
+        transform:scale(.9);
+        opacity:.5;
+    }
+
+    50%{
+        transform:scale(1.4);
+        opacity:1;
+    }
+
+    100%{
+        transform:scale(.9);
+        opacity:.5;
+    }
+
+}
+
+/* ==========================================================
+   INCIDENT LIST
+========================================================== */
+
+.incident-list{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    padding:18px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+}
+
+/* ==========================================================
+   INCIDENT CARD
+========================================================== */
+
+.incident-card{
+
+    padding:18px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+.incident-card:hover{
+
+    transform:translateY(-4px);
+
+    border-color:#00c8ff;
+
+    box-shadow:0 0 18px rgba(0,200,255,.20);
+
+}
+.incident-card.active{
+
+    border:1px solid #00d9ff;
+
+    background:rgba(0,217,255,.10);
+
+    transform:translateY(-4px);
+
+    box-shadow:
+        0 0 20px rgba(0,217,255,.35);
+
+}
+
+.incident-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.incident-left h3{
+
+    color:white;
+
+    margin:0;
+
+    font-size:17px;
+
+}
+
+.incident-left p{
+
+    color:#86a7c5;
+
+    margin-top:5px;
+
+    font-size:13px;
+
+}
+
+/* ==========================================================
+   SEVERITY DOT
+========================================================== */
+
+.severity-dot{
+
+    width:14px;
+
+    height:14px;
+
+    border-radius:50%;
+
+    flex-shrink:0;
+
+}
+
+.severity-dot.critical{
+
+    background:#ff4747;
+
+    box-shadow:0 0 12px #ff4747;
+
+}
+
+.severity-dot.warning{
+
+    background:#ffc107;
+
+    box-shadow:0 0 12px #ffc107;
+
+}
+
+.severity-dot.safe{
+
+    background:#00ff99;
+
+    box-shadow:0 0 12px #00ff99;
+
+}
+
+/* ==========================================================
+   CARD FOOTER
+========================================================== */
+
+.incident-right{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:18px;
+
+}
+
+.incident-right small{
+
+    display:block;
+
+    color:#7da2c0;
+
+    margin-bottom:5px;
+
+    font-size:11px;
+
+}
+
+.incident-right strong{
+
+    color:white;
+
+    font-size:16px;
+
+}
