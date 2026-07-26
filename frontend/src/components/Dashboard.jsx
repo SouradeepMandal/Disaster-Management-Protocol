@@ -1,5 +1,5 @@
 import "./Dashboard.css";
-
+import IndiaMap from "./IndiaMap";
 import {
   FaAmbulance,
   FaHospital,
@@ -180,57 +180,7 @@ function Dashboard() {
 
             </div>
 
-            <div className="india-map">
-
-    <svg
-        className="india-svg"
-        viewBox="0 0 512 512"
-    >
-
-        <path
-            className="india-outline"
-            d="M247 27
-               L220 50
-               L195 70
-               L178 103
-               L150 135
-               L162 170
-               L147 205
-               L160 248
-               L185 290
-               L205 332
-               L230 372
-               L248 430
-               L278 455
-               L304 445
-               L322 408
-               L338 360
-               L366 320
-               L392 280
-               L380 230
-               L396 180
-               L370 150
-               L338 110
-               L315 70
-               L285 45
-               Z"
-        />
-
-    </svg>
-
-    <div className="map-glow"></div>
-
-    <div className="pulse pulse-delhi"></div>
-
-    <div className="pulse pulse-mumbai"></div>
-
-    <div className="pulse pulse-kolkata"></div>
-
-    <div className="pulse pulse-chennai"></div>
-
-    <div className="pulse pulse-bengaluru"></div>
-
-</div>
+            <IndiaMap/>
 
               
             

@@ -1,0 +1,545 @@
+/* =========================
+   INDIA MAP CONTAINER
+========================= */
+
+.india-map {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 520px;
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at top,
+            rgba(0,140,255,.18),
+            transparent 45%),
+
+        linear-gradient(
+            180deg,
+            #081322,
+            #091b31,
+            #07121f
+        );
+
+    border: 1px solid rgba(0,170,255,.25);
+
+    box-shadow:
+        0 0 40px rgba(0,170,255,.12),
+        inset 0 0 40px rgba(255,255,255,.03);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.map-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:22px 28px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(12px);
+}
+
+.map-header h3{
+
+    color:white;
+
+    font-size:24px;
+
+    margin-bottom:5px;
+}
+
+.map-header p{
+
+    color:#7ea6c8;
+
+    font-size:14px;
+}
+
+/* =========================
+   AI STATUS
+========================= */
+
+.ai-status{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px 18px;
+
+    border-radius:50px;
+
+    background:rgba(0,255,170,.12);
+
+    color:#5cffb2;
+
+    font-weight:600;
+
+    letter-spacing:1px;
+}
+
+.status-dot{
+
+    width:10px;
+    height:10px;
+
+    border-radius:50%;
+
+    background:#42ff89;
+
+    box-shadow:0 0 15px #42ff89;
+
+    animation:pulseStatus 1.5s infinite;
+}
+
+@keyframes pulseStatus{
+
+    0%{
+
+        transform:scale(.9);
+
+        opacity:.5;
+    }
+
+    50%{
+
+        transform:scale(1.4);
+
+        opacity:1;
+    }
+
+    100%{
+
+        transform:scale(.9);
+
+        opacity:.5;
+    }
+}
+
+/* =========================
+   MAP BODY
+========================= */
+
+.map-body{
+
+    flex:1;
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+/* =========================
+   RADAR
+========================= */
+
+.radar-container{
+
+    position:absolute;
+
+    width:280px;
+    height:280px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.radar{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    border-radius:50%;
+
+    border:2px solid rgba(0,255,255,.18);
+
+    background:
+    repeating-radial-gradient(
+        circle,
+        rgba(0,255,255,.08) 0px,
+        rgba(0,255,255,.08) 2px,
+        transparent 2px,
+        transparent 35px
+    );
+
+    overflow:hidden;
+}
+
+.radar::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:50%;
+    height:50%;
+
+    left:50%;
+    top:50%;
+
+    transform-origin:left top;
+
+    background:linear-gradient(
+        90deg,
+        rgba(0,255,255,.45),
+        transparent
+    );
+
+    animation:scan 5s linear infinite;
+}
+
+@keyframes scan{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+/* =========================
+   INDIA SVG
+========================= */
+
+.india-svg-container{
+
+    position:relative;
+
+    width:360px;
+    height:430px;
+
+    z-index:3;
+}
+
+.india-svg{
+
+    width:100%;
+    height:100%;
+}
+
+.india-outline{
+
+    fill:rgba(0,150,255,.08);
+
+    stroke:#27d6ff;
+
+    stroke-width:4;
+
+    filter:
+        drop-shadow(0 0 10px #00b7ff)
+        drop-shadow(0 0 25px #00b7ff);
+
+    transition:.4s;
+}
+
+.india-outline:hover{
+
+    fill:rgba(0,180,255,.18);
+
+    stroke:#58f2ff;
+}
+
+/* =========================
+   CITY MARKERS
+========================= */
+
+.city{
+
+    position:absolute;
+
+    width:14px;
+    height:14px;
+
+    border-radius:50%;
+
+    background:#ff3b3b;
+
+    border:3px solid white;
+
+    box-shadow:
+        0 0 12px red,
+        0 0 25px red;
+
+    animation:cityPulse 2s infinite;
+
+    cursor:pointer;
+}
+
+.city:hover{
+
+    transform:scale(1.5);
+
+    box-shadow:
+        0 0 20px #ff4d4d,
+        0 0 40px red;
+}
+
+@keyframes cityPulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.35);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* Marker Positions */
+
+.delhi{
+
+    top:75px;
+    left:205px;
+
+}
+
+.mumbai{
+
+    top:190px;
+    left:135px;
+
+}
+
+.kolkata{
+
+    top:165px;
+    left:270px;
+
+}
+
+.bengaluru{
+
+    top:295px;
+    left:190px;
+
+}
+
+.chennai{
+
+    top:330px;
+    left:235px;
+
+}
+/* =========================
+   CITY LABELS
+========================= */
+
+.city::after{
+
+    position:absolute;
+
+    left:18px;
+    top:-8px;
+
+    padding:4px 10px;
+
+    border-radius:8px;
+
+    background:rgba(7,22,40,.92);
+
+    border:1px solid rgba(0,170,255,.35);
+
+    color:white;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    white-space:nowrap;
+
+    opacity:0;
+
+    transform:translateY(6px);
+
+    transition:.3s;
+
+    pointer-events:none;
+
+    box-shadow:0 0 18px rgba(0,170,255,.25);
+}
+
+.city:hover::after{
+
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+.delhi::after{
+
+    content:"Delhi • Flood";
+
+}
+
+.mumbai::after{
+
+    content:"Mumbai • Rescue";
+
+}
+
+.kolkata::after{
+
+    content:"Kolkata • Cyclone";
+
+}
+
+.bengaluru::after{
+
+    content:"Bengaluru • Medical";
+
+}
+
+.chennai::after{
+
+    content:"Chennai • Storm";
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.map-footer{
+
+    display:flex;
+
+    justify-content:space-around;
+
+    gap:20px;
+
+    padding:18px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(12px);
+}
+
+.footer-card{
+
+    flex:1;
+
+    text-align:center;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    transition:.35s;
+}
+
+.footer-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#00c8ff;
+
+    box-shadow:0 0 24px rgba(0,200,255,.25);
+}
+
+.footer-card h4{
+
+    color:#33d6ff;
+
+    font-size:28px;
+
+    margin-bottom:8px;
+}
+
+.footer-card span{
+
+    color:#8bb9d7;
+
+    font-size:14px;
+}
+
+/* =========================
+   AMBIENT GLOW
+========================= */
+
+.india-map::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+        rgba(0,170,255,.18),
+        transparent 70%
+    );
+
+    top:-140px;
+    right:-120px;
+
+    filter:blur(40px);
+
+    pointer-events:none;
+}
+
+.india-map::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+        rgba(0,255,180,.12),
+        transparent 70%
+    );
+
+    bottom:-100px;
+    left:-80px;
+
+    filter:blur(50px);
+
+    pointer-events:none;
+}
