@@ -1,0 +1,149 @@
+.action-center{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+}
+
+.action-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    padding:18px;
+
+    width:100%;
+
+    border:none;
+
+    cursor:pointer;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:white;
+
+    transition:.35s;
+
+    text-align:left;
+
+}
+
+.action-btn:hover{
+
+    transform:translateX(8px);
+
+}
+
+.action-icon{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:1.3rem;
+
+}
+
+.action-text h4{
+
+    margin-bottom:6px;
+
+}
+
+.action-text p{
+
+    color:#b9c5d8;
+
+    font-size:.9rem;
+
+}
+
+.danger .action-icon{
+
+    background:#ef444420;
+
+    color:#ef4444;
+
+}
+
+.warning .action-icon{
+
+    background:#f59e0b20;
+
+    color:#f59e0b;
+
+}
+
+.primary .action-icon{
+
+    background:#2563eb20;
+
+    color:#38bdf8;
+
+}
+
+.secondary .action-icon{
+
+    background:#8b5cf620;
+
+    color:#c084fc;
+
+}
+
+.success .action-icon{
+
+    background:#22c55e20;
+
+    color:#22c55e;
+
+}
+
+.action-btn:hover.primary{
+
+    border-color:#38bdf8;
+
+    box-shadow:0 0 18px rgba(56,189,248,.25);
+
+}
+
+.action-btn:hover.warning{
+
+    border-color:#f59e0b;
+
+}
+
+.action-btn:hover.success{
+
+    border-color:#22c55e;
+
+}
+
+.action-btn:hover.danger{
+
+    border-color:#ef4444;
+
+}
+
+.action-btn:hover.secondary{
+
+    border-color:#c084fc;
+
+}

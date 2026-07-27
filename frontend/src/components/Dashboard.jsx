@@ -1,4 +1,9 @@
 import "./Dashboard.css";
+import DisasterTimeline from "./DisasterTimeline";
+import ActionCenter from "./ActionCenter";
+import SystemStatus from "./SystemStatus";
+import MiniAnalytics from "./MiniAnalytics";
+import DashboardEffects from "./DashboardEffects";
 import IndiaMap from "./IndiaMap";
 import {
   FaAmbulance,
@@ -14,6 +19,7 @@ import {
 function Dashboard() {
   return (
     <section className="dashboard">
+      <DashboardEffects/>
 
       {/* ================= HEADER ================= */}
 
@@ -216,14 +222,73 @@ function Dashboard() {
 
             <div className="prediction-text">
 
-              <h3>High Flood Probability</h3>
+    <h3>High Flood Probability</h3>
 
-              <p>
-                AI models predict increased flood risk across Eastern India
-                within the next 24 hours.
-              </p>
+    <p>
+        AI models predict an elevated flood risk across Eastern India
+        based on rainfall intensity, river discharge and satellite
+        observations.
+    </p>
 
-            </div>
+</div>
+
+<div className="prediction-details">
+
+    <div className="prediction-item">
+
+        <span>AI Confidence</span>
+
+        <strong>96.8%</strong>
+
+    </div>
+
+    <div className="prediction-item critical">
+
+        <span>Risk Level</span>
+
+        <strong>Critical</strong>
+
+    </div>
+
+    <div className="prediction-item">
+
+        <span>Prediction Window</span>
+
+        <strong>3–6 Hours</strong>
+
+    </div>
+
+</div>
+
+<div className="ai-recommendation">
+
+    <h4>AI Recommendation</h4>
+
+    <p>
+        Deploy emergency response teams towards Kolkata, Hooghly and
+        North 24 Parganas. Keep medical units and evacuation shelters
+        on standby.
+    </p>
+
+</div>
+            <div className="prediction-stats">
+
+  <div className="prediction-stat">
+    <h4>18</h4>
+    <span>Emergency Teams</span>
+  </div>
+
+  <div className="prediction-stat">
+    <h4>96%</h4>
+    <span>AI Accuracy</span>
+  </div>
+
+  <div className="prediction-stat">
+    <h4>4.8m</h4>
+    <span>Avg Response</span>
+  </div>
+
+</div>
 
           </div>
 
@@ -235,69 +300,19 @@ function Dashboard() {
 
           <div className="panel alerts-panel">
 
-            <div className="panel-header">
+    <div className="panel-header">
 
-              <h3>🚨 Emergency Feed</h3>
+        <h3>📡 Live Disaster Timeline</h3>
 
-            </div>
+        <span className="status live">
+            LIVE
+        </span>
 
-            <div className="alert-card critical">
+    </div>
 
-              <span>🔴</span>
+    <DisasterTimeline />
 
-              <div>
-
-                <h4>Flood Alert</h4>
-
-                <p>Kolkata • 2 min ago</p>
-
-              </div>
-
-            </div>
-
-            <div className="alert-card warning">
-
-              <span>🟠</span>
-
-              <div>
-
-                <h4>Cyclone Warning</h4>
-
-                <p>Odisha • 8 min ago</p>
-
-              </div>
-
-            </div>
-
-            <div className="alert-card moderate">
-
-              <span>🟡</span>
-
-              <div>
-
-                <h4>Heavy Rain</h4>
-
-                <p>Assam • 12 min ago</p>
-
-              </div>
-
-            </div>
-
-            <div className="alert-card info">
-
-              <span>🔵</span>
-
-              <div>
-
-                <h4>Ambulance Dispatched</h4>
-
-                <p>Hospital Unit 5</p>
-
-              </div>
-
-            </div>
-
-          </div>
+</div>
                     {/* Weather Intelligence */}
 
           <div className="panel weather-panel">
@@ -329,7 +344,23 @@ function Dashboard() {
             </div>
 
           </div>
+          <div className="panel action-panel">
 
+    <div className="panel-header">
+
+        <h3>🤖 AI Operations Center</h3>
+
+        <span className="status ai">
+
+            READY
+
+        </span>
+
+    </div>
+
+    <ActionCenter/>
+
+</div>
           {/* Resource Availability */}
 
           <div className="panel resources-panel">
@@ -417,6 +448,36 @@ function Dashboard() {
         </div>
 
       </div>
+      <div className="panel system-panel">
+
+    <div className="panel-header">
+
+        <h3>🛰 System Status</h3>
+
+        <span className="status live">
+            ONLINE
+        </span>
+
+    </div>
+
+    <SystemStatus/>
+
+</div>
+<div className="panel analytics-panel">
+
+    <div className="panel-header">
+
+        <h3>📈 Live Analytics</h3>
+
+        <span className="status live">
+            LIVE
+        </span>
+
+    </div>
+
+    <MiniAnalytics/>
+
+</div>
 
       {/* Analytics Footer */}
 

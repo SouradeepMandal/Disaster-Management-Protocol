@@ -1,0 +1,148 @@
+.mini-analytics{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+}
+
+.mini-card{
+
+    padding:22px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.35s;
+
+}
+
+.mini-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#00d9ff;
+
+    box-shadow:0 0 24px rgba(0,217,255,.18);
+
+}
+
+.mini-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.mini-icon{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:14px;
+
+    background:#00d9ff20;
+
+    color:#00d9ff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:1.2rem;
+
+}
+
+.mini-change{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+}
+
+.mini-change.up{
+
+    color:#22c55e;
+
+}
+
+.mini-change.down{
+
+    color:#ef4444;
+
+}
+
+.mini-card h2{
+
+    margin-top:18px;
+
+    margin-bottom:8px;
+
+    font-size:2rem;
+
+}
+
+.mini-card p{
+
+    color:#9fb6d3;
+
+    margin-bottom:18px;
+
+}
+
+.mini-progress{
+
+    width:100%;
+
+    height:8px;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.06);
+
+}
+
+.mini-fill{
+
+    height:100%;
+
+    border-radius:20px;
+
+    background:linear-gradient(
+        90deg,
+        #00d9ff,
+        #38bdf8
+    );
+
+    animation:growBar 1.4s ease;
+}
+
+@keyframes growBar{
+
+    from{
+
+        width:0;
+
+    }
+
+}

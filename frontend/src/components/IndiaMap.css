@@ -223,21 +223,31 @@
 
     display:flex;
 
+    gap:10px;
+
+    width:100%;
+
+    min-width:0;
+
     overflow:hidden;
 
 }
-
 .map-section{
 
-    flex:1;
+    flex:3;
 
     display:flex;
 
     justify-content:center;
 
-    align-items:center;
+    align-items:flex-start;
+
+    min-width:0;
+
+    overflow:hidden;
 
 }
+
 /* ==========================================================
    MAP BODY
 ========================================================== */
@@ -252,11 +262,11 @@
 
     justify-content:center;
 
-    align-items:center;
+    align-items:flex-start;
 
     overflow:hidden;
 
-    padding:25px;
+    padding:15px 0 5px;
 
 }
 
@@ -268,12 +278,17 @@
 
     position:relative;
 
-    width:420px;
+    width:100%;
 
-    height:500px;
+    max-width:950px;
+
+    aspect-ratio:0.82;
+
+    margin:auto;
+
+    flex-shrink:0;
 
 }
-
 /* ==========================================================
    SVG
 ========================================================== */
@@ -287,6 +302,8 @@
     width:100%;
 
     height:100%;
+
+    object-fit:contain;
 
     z-index:5;
 
@@ -517,117 +534,15 @@
    FOOTER
 ========================================================== */
 
-.map-footer{
 
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:18px;
-
-    padding:22px;
-
-    border-top:1px solid rgba(255,255,255,.08);
-
-    background:rgba(255,255,255,.02);
-
-    backdrop-filter:blur(14px);
-
-}
 
 /* ==========================================================
    FOOTER CARDS
 ========================================================== */
 
-.footer-card{
 
-    position:relative;
 
-    overflow:hidden;
 
-    padding:22px;
-
-    border-radius:18px;
-
-    background:linear-gradient(
-        180deg,
-        rgba(255,255,255,.05),
-        rgba(255,255,255,.025)
-    );
-
-    border:1px solid rgba(255,255,255,.08);
-
-    text-align:center;
-
-    transition:
-        transform .35s ease,
-        border-color .35s ease,
-        box-shadow .35s ease;
-
-}
-
-.footer-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:180px;
-    height:180px;
-
-    top:-120px;
-    right:-90px;
-
-    border-radius:50%;
-
-    background:radial-gradient(
-        rgba(0,195,255,.22),
-        transparent 70%
-    );
-
-    filter:blur(22px);
-
-    pointer-events:none;
-
-}
-
-.footer-card:hover{
-
-    transform:translateY(-8px);
-
-    border-color:rgba(0,220,255,.45);
-
-    box-shadow:
-        0 15px 35px rgba(0,170,255,.15),
-        inset 0 0 15px rgba(255,255,255,.04);
-
-}
-
-.footer-card h4{
-
-    margin:0 0 8px;
-
-    font-size:30px;
-
-    color:#39d9ff;
-
-    font-weight:700;
-
-    letter-spacing:.5px;
-
-}
-
-.footer-card span{
-
-    display:block;
-
-    color:#90b9d4;
-
-    font-size:14px;
-
-    letter-spacing:.4px;
-
-}
 
 /* ==========================================================
    RESPONSIVE
@@ -653,12 +568,13 @@
 
     .india-svg-container{
 
-        width:340px;
+    width:100%;
 
-        height:410px;
+    max-width:650px;
+
+    aspect-ratio:0.82;
 
     }
-
 }
 
 @media (max-width:600px){
@@ -683,9 +599,11 @@
 
     .india-svg-container{
 
-        width:290px;
+    width:100%;
 
-        height:360px;
+    max-width:380px;
+
+    aspect-ratio:0.82;
 
     }
 
@@ -728,37 +646,7 @@
 
 }
 
-/* ==========================================================
-   MAP FLOATING EFFECT
-========================================================== */
 
-.india-svg-container{
-
-    animation:mapFloat 7s ease-in-out infinite;
-
-}
-
-@keyframes mapFloat{
-
-    0%{
-
-        transform:translateY(0px);
-
-    }
-
-    50%{
-
-        transform:translateY(-8px);
-
-    }
-
-    100%{
-
-        transform:translateY(0px);
-
-    }
-
-}
 
 /* ==========================================================
    SMOOTH HOVER
@@ -821,13 +709,9 @@
    GLASS EFFECT
 ========================================================== */
 
-.footer-card,
 .ai-status{
-
     backdrop-filter:blur(16px);
-
     -webkit-backdrop-filter:blur(16px);
-
 }
 
 /* ==========================================================
@@ -879,7 +763,6 @@
 .city-marker,
 .connection-svg,
 .india-outline,
-.footer-card,
 .ai-status{
 
     will-change:transform,opacity,filter;
@@ -889,3 +772,52 @@
 /* ==========================================================
    END OF FILE
 ========================================================== */
+.india-image{
+
+    position:absolute;
+
+    inset:0;
+
+    width:108%;
+
+    height:108%;
+
+    object-fit:contain;
+
+    z-index:5;
+
+}
+
+.radar-wrapper{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:10;
+
+    opacity:.45;
+
+    mix-blend-mode:screen;
+
+    pointer-events:none;
+
+}
+
+.connection-svg{
+
+    z-index:20;
+
+}
+
+.city-marker{
+
+    z-index:30;
+
+}

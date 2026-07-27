@@ -1,0 +1,139 @@
+.dashboard-grid-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background-image:
+
+    linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+
+    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+
+    background-size:45px 45px;
+
+    opacity:.12;
+
+    z-index:0;
+
+}
+
+.dashboard-glow{
+
+    position:fixed;
+
+    width:450px;
+
+    height:450px;
+
+    border-radius:50%;
+
+    filter:blur(140px);
+
+    opacity:.22;
+
+    pointer-events:none;
+
+    animation:floatGlow 12s ease-in-out infinite;
+
+}
+
+.glow-one{
+
+    background:#00d9ff;
+
+    top:-120px;
+
+    left:-120px;
+
+}
+
+.glow-two{
+
+    background:#2563eb;
+
+    right:-140px;
+
+    bottom:-100px;
+
+}
+
+@keyframes floatGlow{
+
+    50%{
+
+        transform:translateY(30px);
+
+    }
+
+}
+
+.floating-particle{
+
+    position:fixed;
+
+    width:5px;
+
+    height:5px;
+
+    border-radius:50%;
+
+    background:#7dd3fc;
+
+    opacity:.35;
+
+    animation:particleFloat linear infinite;
+
+    pointer-events:none;
+
+}
+
+.particle-1{
+
+    left:15%;
+
+    animation-duration:15s;
+
+}
+
+.particle-2{
+
+    left:40%;
+
+    animation-duration:22s;
+
+}
+
+.particle-3{
+
+    left:70%;
+
+    animation-duration:18s;
+
+}
+
+.particle-4{
+
+    left:90%;
+
+    animation-duration:25s;
+
+}
+
+@keyframes particleFloat{
+
+    from{
+
+        transform:translateY(100vh);
+
+    }
+
+    to{
+
+        transform:translateY(-20vh);
+
+    }
+
+}

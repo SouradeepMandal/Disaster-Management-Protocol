@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import "./IndiaMap.css";
 
+import indiaMap from "../assets/india-ai-map.png";
+
 import cityData from "./cityData";
 
 import CityMarker from "./CityMarker";
@@ -37,58 +39,26 @@ function IndiaMap() {
 
             <div className="india-svg-container">
 
-              <Radar />
+    <Radar />
 
-              <svg
-                className="india-svg"
-                viewBox="0 0 400 500"
-              >
+    <img
+        src={indiaMap}
+        alt="India AI Map"
+        className="india-image"
+    />
 
-                <path
-                  className="india-outline"
-                  d="
-                    M247 27
-                    L220 50
-                    L200 95
-                    L215 145
-                    L170 180
-                    L160 235
-                    L180 300
-                    L210 365
-                    L235 430
-                    L250 470
-                    L275 450
-                    L285 390
-                    L305 330
-                    L325 260
-                    L300 185
-                    L285 120
-                    L260 70
-                    Z
-                  "
-                />
+    <ConnectionLines />
 
-              </svg>
+    {cityData.map((city) => (
+        <CityMarker
+            key={city.id}
+            city={city}
+            selected={selectedCity.id === city.id}
+            onClick={() => setSelectedCity(city)}
+        />
+    ))}
 
-              <ConnectionLines />
-
-              {cityData.map((city)=>(
-
-                <CityMarker
-
-                  key={city.id}
-
-                  city={city}
-
-                  selected={selectedCity.id===city.id}
-
-                  onClick={()=>setSelectedCity(city)}
-
-                />
-
-              ))}
-
-            </div>
+</div>
 
           </div>
 
@@ -104,33 +74,7 @@ function IndiaMap() {
 
       </div>
 
-      <div className="map-footer">
-
-        <div className="footer-card">
-
-          <h4>18</h4>
-
-          <span>Emergency Teams</span>
-
-        </div>
-
-        <div className="footer-card">
-
-          <h4>96%</h4>
-
-          <span>AI Accuracy</span>
-
-        </div>
-
-        <div className="footer-card">
-
-          <h4>4.8m</h4>
-
-          <span>Avg Response</span>
-
-        </div>
-
-      </div>
+      
 
     </div>
 

@@ -1,121 +1,246 @@
-.radar-wrapper {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  pointer-events: none;
+.radar-wrapper{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    pointer-events:none;
+
+    z-index:10;
+
+    opacity:.38;
+
+    mix-blend-mode:screen;
+
 }
 
-.radar-ring {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid rgba(0, 255, 255, 0.15);
+/* =========================
+   RINGS
+========================= */
+
+.radar-ring{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    border:1px solid rgba(0,255,255,.14);
+
+    box-shadow:
+        0 0 10px rgba(0,255,255,.05);
+
 }
 
-.ring1 {
-  width: 120px;
-  height: 120px;
+.ring1{
+
+    width:180px;
+
+    height:180px;
+
 }
 
-.ring2 {
-  width: 180px;
-  height: 180px;
+.ring2{
+
+    width:320px;
+
+    height:320px;
+
 }
 
-.ring3 {
-  width: 240px;
-  height: 240px;
+.ring3{
+
+    width:470px;
+
+    height:470px;
+
 }
 
-.ring4 {
-  width: 300px;
-  height: 300px;
+.ring4{
+
+    width:640px;
+
+    height:640px;
+
 }
 
-.radar-cross {
-  position: absolute;
-  background: rgba(0, 255, 255, 0.12);
+/* =========================
+   CROSSHAIR
+========================= */
+
+.radar-cross{
+
+    position:absolute;
+
+    background:rgba(0,255,255,.12);
+
 }
 
-.horizontal {
-  width: 300px;
-  height: 1px;
+.horizontal{
+
+    width:640px;
+
+    height:1px;
+
 }
 
-.vertical {
-  width: 1px;
-  height: 300px;
+.vertical{
+
+    width:1px;
+
+    height:640px;
+
 }
 
-.radar-sweep {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: conic-gradient(
-    rgba(0, 255, 255, 0.45) 0deg,
-    rgba(0, 255, 255, 0.15) 35deg,
-    transparent 70deg,
-    transparent 360deg
-  );
-  animation: radarRotate 5s linear infinite;
-  filter: blur(2px);
+/* =========================
+   SWEEP
+========================= */
+
+.radar-sweep{
+
+    position:absolute;
+
+    width:640px;
+
+    height:640px;
+
+    border-radius:50%;
+
+    background:
+        conic-gradient(
+
+            rgba(0,255,170,.60) 0deg,
+
+            rgba(0,255,170,.25) 18deg,
+
+            rgba(0,255,170,.10) 42deg,
+
+            transparent 65deg,
+
+            transparent 360deg
+
+        );
+
+    animation:radarRotate 6s linear infinite;
+
+    filter:blur(4px);
+
 }
 
-.radar-sweep::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: radial-gradient(circle, transparent 55%, rgba(0,0,0,.7));
+.radar-sweep::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+
+            circle,
+
+            transparent 60%,
+
+            rgba(0,0,0,.55)
+
+        );
+
 }
 
-.radar-center {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #00ffff;
-  box-shadow:
-    0 0 10px #00ffff,
-    0 0 25px #00ffff,
-    0 0 45px #00ffff;
+/* =========================
+   CENTER
+========================= */
+
+.radar-center{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background:#00ffff;
+
+    box-shadow:
+
+        0 0 15px #00ffff,
+
+        0 0 35px #00ffff,
+
+        0 0 70px #00ffff;
+
 }
 
-.pulse {
-  position: absolute;
-  border: 2px solid rgba(0,255,255,.35);
-  border-radius: 50%;
-  animation: pulseWave 3s infinite;
+/* =========================
+   PULSE
+========================= */
+
+.pulse{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    border:2px solid rgba(0,255,170,.35);
+
+    animation:pulseWave 4s infinite;
+
 }
 
-.pulse1 {
-  animation-delay: 0s;
+.pulse2{
+
+    animation-delay:2s;
+
 }
 
-.pulse2 {
-  animation-delay: 1.5s;
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes radarRotate{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
 }
 
-@keyframes radarRotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+@keyframes pulseWave{
 
-@keyframes pulseWave {
-  0% {
-    width: 0;
-    height: 0;
-    opacity: 1;
-  }
+    from{
 
-  100% {
-    width: 300px;
-    height: 300px;
-    opacity: 0;
-  }
+        width:0;
+
+        height:0;
+
+        opacity:.8;
+
+    }
+
+    to{
+
+        width:640px;
+
+        height:640px;
+
+        opacity:0;
+
+    }
+
 }
