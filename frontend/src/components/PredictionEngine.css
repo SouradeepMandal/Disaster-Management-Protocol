@@ -1,0 +1,3791 @@
+/* ===========================================================
+   PREDICTIONENGINE.CSS V2
+   PART 1 / 6
+   DESIGN SYSTEM + MAIN CONTAINER + HEADER
+=========================================================== */
+
+
+/* ===========================================================
+   ROOT VARIABLES
+=========================================================== */
+
+:root{
+
+    --pe-primary:#00d9ff;
+    --pe-secondary:#2563eb;
+    --pe-success:#22c55e;
+    --pe-warning:#f59e0b;
+    --pe-danger:#ef4444;
+    --pe-purple:#8b5cf6;
+
+    --pe-bg:#07111f;
+    --pe-panel:#0d1728;
+    --pe-card:#122034;
+
+    --pe-text:#ffffff;
+    --pe-text-secondary:#c7d2e3;
+    --pe-text-muted:#7f94b4;
+
+    --pe-border:rgba(255,255,255,.08);
+
+    --pe-radius:22px;
+
+    --pe-transition:.35s ease;
+
+    --pe-shadow:
+        0 18px 40px rgba(0,0,0,.35);
+
+}
+
+
+/* ===========================================================
+   MAIN CONTAINER
+=========================================================== */
+
+.prediction-engine{
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:24px;
+
+    width:100%;
+
+    height:100%;
+
+    min-height:760px;
+
+    overflow:hidden;
+
+    border-radius:28px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(8,20,36,.98),
+            rgba(3,10,18,.98)
+        );
+
+    border:1px solid rgba(255,255,255,.06);
+
+    box-shadow:
+
+        0 30px 80px rgba(0,0,0,.45);
+
+}
+
+
+/* ===========================================================
+   AI BACKGROUND
+=========================================================== */
+
+.prediction-engine::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        radial-gradient(circle at 15% 15%,
+        rgba(0,217,255,.14),
+        transparent 35%),
+
+        radial-gradient(circle at 85% 20%,
+        rgba(37,99,235,.12),
+        transparent 40%),
+
+        radial-gradient(circle at 50% 100%,
+        rgba(139,92,246,.10),
+        transparent 45%);
+
+    pointer-events:none;
+
+}
+
+.prediction-engine::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+
+        linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),
+
+        linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+
+    background-size:34px 34px;
+
+    opacity:.18;
+
+    pointer-events:none;
+
+}
+
+
+/* ===========================================================
+   FLOATING LIGHTS
+=========================================================== */
+
+.ai-light{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(80px);
+
+    pointer-events:none;
+
+}
+
+.ai-light.one{
+
+    width:220px;
+
+    height:220px;
+
+    background:rgba(0,217,255,.18);
+
+    top:-40px;
+
+    left:-60px;
+
+    animation:lightFloatOne 12s ease-in-out infinite;
+
+}
+
+.ai-light.two{
+
+    width:240px;
+
+    height:240px;
+
+    background:rgba(37,99,235,.16);
+
+    right:-80px;
+
+    top:100px;
+
+    animation:lightFloatTwo 16s ease-in-out infinite;
+
+}
+
+.ai-light.three{
+
+    width:180px;
+
+    height:180px;
+
+    background:rgba(139,92,246,.16);
+
+    bottom:-40px;
+
+    left:40%;
+
+    animation:lightFloatThree 15s ease-in-out infinite;
+
+}
+
+
+/* ===========================================================
+   CONTENT WRAPPER
+=========================================================== */
+
+.prediction-content{
+
+    position:relative;
+
+    z-index:2;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:24px;
+
+    padding:26px;
+
+}
+
+
+/* ===========================================================
+   HEADER
+=========================================================== */
+
+.prediction-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+
+/* ===========================================================
+   TITLE
+=========================================================== */
+
+.prediction-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+.prediction-icon{
+
+    width:64px;
+
+    height:64px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:18px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(0,217,255,.18),
+            rgba(37,99,235,.18)
+        );
+
+    color:var(--pe-primary);
+
+    font-size:2rem;
+
+    box-shadow:
+
+        inset 0 0 18px rgba(255,255,255,.05),
+
+        0 0 25px rgba(0,217,255,.15);
+
+}
+
+.prediction-title h2{
+
+    color:var(--pe-text);
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    margin-bottom:4px;
+
+}
+
+.prediction-title p{
+
+    color:var(--pe-text-muted);
+
+    font-size:.92rem;
+
+}
+
+
+/* ===========================================================
+   HEADER ACTIONS
+=========================================================== */
+
+.prediction-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+.ai-status{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    background:rgba(34,197,94,.10);
+
+    border:1px solid rgba(34,197,94,.30);
+
+}
+
+.ai-status-dot{
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:var(--pe-success);
+
+    animation:statusPulse 2s infinite;
+
+}
+
+.ai-status span{
+
+    color:#ffffff;
+
+    font-size:.82rem;
+
+    font-weight:600;
+
+}
+
+
+/* ===========================================================
+   LAST UPDATE
+=========================================================== */
+
+.last-updated{
+
+    padding:10px 18px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid var(--pe-border);
+
+    color:var(--pe-text-secondary);
+
+    font-size:.82rem;
+
+}
+
+
+/* ===========================================================
+   GLASS CARD
+=========================================================== */
+
+.prediction-card{
+
+    position:relative;
+
+    border-radius:22px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.05),
+            rgba(255,255,255,.02)
+        );
+
+    border:1px solid var(--pe-border);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:var(--pe-shadow);
+
+    transition:
+
+        transform var(--pe-transition),
+
+        border-color var(--pe-transition),
+
+        box-shadow var(--pe-transition);
+
+}
+
+.prediction-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:rgba(0,217,255,.28);
+
+    box-shadow:
+
+        0 20px 50px rgba(0,0,0,.45),
+
+        0 0 25px rgba(0,217,255,.14);
+
+}
+
+
+/* ===========================================================
+   SECTION TITLE
+=========================================================== */
+
+.section-title{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.section-title h3{
+
+    color:#ffffff;
+
+    font-size:1.1rem;
+
+    font-weight:700;
+
+}
+
+.section-title span{
+
+    color:var(--pe-primary);
+
+    font-size:.82rem;
+
+    font-weight:600;
+
+}
+
+
+/* ===========================================================
+   COMMON UTILITIES
+=========================================================== */
+
+.text-primary{
+
+    color:var(--pe-primary);
+
+}
+
+.text-success{
+
+    color:var(--pe-success);
+
+}
+
+.text-warning{
+
+    color:var(--pe-warning);
+
+}
+
+.text-danger{
+
+    color:var(--pe-danger);
+
+}
+
+.text-purple{
+
+    color:var(--pe-purple);
+
+}
+
+.glow{
+
+    box-shadow:
+
+        0 0 18px rgba(0,217,255,.30);
+
+}
+
+
+/* ===========================================================
+   ANIMATIONS
+=========================================================== */
+
+@keyframes statusPulse{
+
+    0%{
+
+        transform:scale(.9);
+
+        opacity:.7;
+
+    }
+
+    50%{
+
+        transform:scale(1.3);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:scale(.9);
+
+        opacity:.7;
+
+    }
+
+}
+
+@keyframes lightFloatOne{
+
+    50%{
+
+        transform:translate(25px,35px);
+
+    }
+
+}
+
+@keyframes lightFloatTwo{
+
+    50%{
+
+        transform:translate(-30px,25px);
+
+    }
+
+}
+
+@keyframes lightFloatThree{
+
+    50%{
+
+        transform:translateY(-35px);
+
+    }
+
+}
+
+
+/* ===========================================================
+   PART 1 END
+=========================================================== */
+/* ===========================================================
+   PREDICTIONENGINE.CSS V2
+   PART 2 / 6
+   AI PREDICTION DASHBOARD + RISK SCORE + KPI CARDS
+=========================================================== */
+
+
+/* ===========================================================
+   DASHBOARD GRID
+=========================================================== */
+
+.prediction-dashboard{
+
+    display:grid;
+
+    grid-template-columns:380px 1fr;
+
+    gap:24px;
+
+    align-items:stretch;
+
+}
+
+
+/* ===========================================================
+   RISK PANEL
+=========================================================== */
+
+.risk-panel{
+
+    padding:28px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:22px;
+
+}
+
+
+/* ===========================================================
+   AI RISK METER
+=========================================================== */
+
+.risk-meter{
+
+    position:relative;
+
+    width:260px;
+
+    height:260px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+/* ===========================================================
+   OUTER CIRCLE
+=========================================================== */
+
+.risk-ring{
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:50%;
+
+    background:
+
+        conic-gradient(
+
+            var(--pe-danger) 0deg,
+
+            var(--pe-warning) 120deg,
+
+            var(--pe-success) 240deg,
+
+            rgba(255,255,255,.08) 360deg
+
+        );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    animation:ringRotate 12s linear infinite;
+
+}
+
+
+/* ===========================================================
+   INNER CIRCLE
+=========================================================== */
+
+.risk-ring::before{
+
+    content:"";
+
+    width:215px;
+
+    height:215px;
+
+    border-radius:50%;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #0a1728,
+            #07111d
+        );
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+
+/* ===========================================================
+   SCORE
+=========================================================== */
+
+.risk-score{
+
+    position:absolute;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    z-index:2;
+
+}
+
+.risk-score h1{
+
+    color:#ffffff;
+
+    font-size:4rem;
+
+    font-weight:800;
+
+    line-height:1;
+
+}
+
+.risk-score span{
+
+    margin-top:10px;
+
+    color:var(--pe-text-muted);
+
+    font-size:.9rem;
+
+    letter-spacing:1px;
+
+}
+
+
+/* ===========================================================
+   PREDICTION STATUS
+=========================================================== */
+
+.prediction-status{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:10px 20px;
+
+    border-radius:999px;
+
+    font-weight:700;
+
+    font-size:.82rem;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+}
+
+.prediction-status.safe{
+
+    background:rgba(34,197,94,.15);
+
+    color:#22c55e;
+
+}
+
+.prediction-status.warning{
+
+    background:rgba(245,158,11,.15);
+
+    color:#f59e0b;
+
+}
+
+.prediction-status.high{
+
+    background:rgba(249,115,22,.15);
+
+    color:#f97316;
+
+}
+
+.prediction-status.critical{
+
+    background:rgba(239,68,68,.15);
+
+    color:#ef4444;
+
+}
+
+
+/* ===========================================================
+   CONFIDENCE BAR
+=========================================================== */
+
+.confidence-wrapper{
+
+    width:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.confidence-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:#ffffff;
+
+    font-size:.9rem;
+
+}
+
+.confidence-track{
+
+    height:10px;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    background:#162536;
+
+}
+
+.confidence-fill{
+
+    height:100%;
+
+    width:96%;
+
+    border-radius:999px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            var(--pe-primary),
+            var(--pe-secondary)
+        );
+
+    animation:growBar 1.4s ease;
+
+}
+
+
+/* ===========================================================
+   RIGHT PANEL
+=========================================================== */
+
+.prediction-overview{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:24px;
+
+}
+
+
+/* ===========================================================
+   KPI GRID
+=========================================================== */
+
+.kpi-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+}
+
+
+/* ===========================================================
+   KPI CARD
+=========================================================== */
+
+.kpi-card{
+
+    padding:22px;
+
+    border-radius:20px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.05),
+            rgba(255,255,255,.02)
+        );
+
+    border:1px solid rgba(255,255,255,.06);
+
+    transition:.35s ease;
+
+}
+
+.kpi-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:rgba(0,217,255,.25);
+
+}
+
+
+/* ===========================================================
+   KPI HEADER
+=========================================================== */
+
+.kpi-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.kpi-icon{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,217,255,.12);
+
+    color:var(--pe-primary);
+
+    font-size:1.4rem;
+
+}
+
+.kpi-trend{
+
+    color:#22c55e;
+
+    font-size:.82rem;
+
+    font-weight:700;
+
+}
+
+
+/* ===========================================================
+   KPI CONTENT
+=========================================================== */
+
+.kpi-card h2{
+
+    color:#ffffff;
+
+    font-size:2rem;
+
+    margin-bottom:8px;
+
+    font-weight:800;
+
+}
+
+.kpi-card p{
+
+    color:var(--pe-text-muted);
+
+    font-size:.86rem;
+
+}
+
+
+/* ===========================================================
+   SUMMARY CARD
+=========================================================== */
+
+.prediction-summary{
+
+    padding:26px;
+
+}
+
+.summary-title{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:18px;
+
+}
+
+.summary-title h3{
+
+    color:#ffffff;
+
+    font-size:1.15rem;
+
+}
+
+.summary-title span{
+
+    color:var(--pe-primary);
+
+    font-size:.82rem;
+
+}
+
+.summary-text{
+
+    color:var(--pe-text-secondary);
+
+    line-height:1.8;
+
+    font-size:.95rem;
+
+}
+
+
+/* ===========================================================
+   QUICK METRICS
+=========================================================== */
+
+.quick-metrics{
+
+    margin-top:24px;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:14px;
+
+}
+
+.metric-box{
+
+    text-align:center;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,.04);
+
+}
+
+.metric-box h3{
+
+    color:#ffffff;
+
+    font-size:1.7rem;
+
+    margin-bottom:8px;
+
+}
+
+.metric-box span{
+
+    color:var(--pe-text-muted);
+
+    font-size:.82rem;
+
+}
+
+
+/* ===========================================================
+   LIVE PROCESSING
+=========================================================== */
+
+.processing-status{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:var(--pe-primary);
+
+    font-size:.85rem;
+
+    font-weight:600;
+
+}
+
+.processing-dot{
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:var(--pe-primary);
+
+    animation:processingPulse 1.5s infinite;
+
+}
+
+
+/* ===========================================================
+   ANIMATIONS
+=========================================================== */
+
+@keyframes ringRotate{
+
+    from{
+
+        transform:rotate(0deg);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+@keyframes growBar{
+
+    from{
+
+        width:0;
+
+    }
+
+}
+
+@keyframes processingPulse{
+
+    0%{
+
+        transform:scale(.8);
+
+        opacity:.5;
+
+    }
+
+    50%{
+
+        transform:scale(1.4);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:scale(.8);
+
+        opacity:.5;
+
+    }
+
+}
+
+
+/* ===========================================================
+   PERFORMANCE
+=========================================================== */
+
+.risk-ring,
+.kpi-card,
+.metric-box,
+.confidence-fill{
+
+    will-change:
+        transform,
+        opacity;
+
+}
+
+
+/* ===========================================================
+   PART 2 END
+=========================================================== */
+/* ===========================================================
+   PREDICTIONENGINE.CSS V2
+   PART 3 / 6
+   FORECAST ANALYTICS + CHARTS + HEATMAP + PROBABILITY
+=========================================================== */
+
+
+/* ===========================================================
+   ANALYTICS GRID
+=========================================================== */
+
+.analytics-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:24px;
+
+    align-items:stretch;
+
+}
+
+
+/* ===========================================================
+   CHART PANEL
+=========================================================== */
+
+.chart-panel{
+
+    display:flex;
+
+    flex-direction:column;
+
+    padding:26px;
+
+    border-radius:22px;
+
+}
+
+
+/* ===========================================================
+   CHART HEADER
+=========================================================== */
+
+.chart-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:26px;
+
+}
+
+.chart-title{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+
+}
+
+.chart-title h3{
+
+    color:#ffffff;
+
+    font-size:1.15rem;
+
+    font-weight:700;
+
+}
+
+.chart-title span{
+
+    color:var(--pe-text-muted);
+
+    font-size:.82rem;
+
+}
+
+
+/* ===========================================================
+   CHART FILTERS
+=========================================================== */
+
+.chart-filters{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+}
+
+.chart-filter{
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:rgba(255,255,255,.04);
+
+    color:var(--pe-text-secondary);
+
+    cursor:pointer;
+
+    transition:.3s ease;
+
+}
+
+.chart-filter:hover,
+
+.chart-filter.active{
+
+    background:rgba(0,217,255,.14);
+
+    color:#ffffff;
+
+    border-color:rgba(0,217,255,.35);
+
+}
+
+
+/* ===========================================================
+   CHART CANVAS
+=========================================================== */
+
+.chart-container{
+
+    position:relative;
+
+    flex:1;
+
+    min-height:340px;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    background:
+
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.03),
+            rgba(255,255,255,.015)
+        );
+
+    border:1px solid rgba(255,255,255,.05);
+
+}
+
+
+/* ===========================================================
+   GRID BACKGROUND
+=========================================================== */
+
+.chart-grid{
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+
+        linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
+
+        linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+
+    background-size:50px 50px;
+
+    opacity:.35;
+
+}
+
+
+/* ===========================================================
+   SVG GRAPH
+=========================================================== */
+
+.chart-svg{
+
+    position:absolute;
+
+    inset:0;
+
+    width:100%;
+
+    height:100%;
+
+}
+
+.chart-line{
+
+    fill:none;
+
+    stroke:var(--pe-primary);
+
+    stroke-width:4;
+
+    stroke-linecap:round;
+
+    stroke-linejoin:round;
+
+    filter:
+
+        drop-shadow(0 0 12px rgba(0,217,255,.45));
+
+    stroke-dasharray:1000;
+
+    stroke-dashoffset:1000;
+
+    animation:drawLine 2.5s ease forwards;
+
+}
+
+.chart-area{
+
+    fill:url(#predictionGradient);
+
+    opacity:.22;
+
+}
+
+
+/* ===========================================================
+   DATA POINT
+=========================================================== */
+
+.chart-point{
+
+    fill:#ffffff;
+
+    stroke:var(--pe-primary);
+
+    stroke-width:3;
+
+    transition:.3s ease;
+
+    cursor:pointer;
+
+}
+
+.chart-point:hover{
+
+    r:8;
+
+    filter:
+
+        drop-shadow(0 0 10px rgba(0,217,255,.8));
+
+}
+
+
+/* ===========================================================
+   HEATMAP
+=========================================================== */
+
+.heatmap-panel{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    padding:24px;
+
+}
+
+.heatmap-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:10px;
+
+}
+
+.heat-cell{
+
+    aspect-ratio:1;
+
+    border-radius:12px;
+
+    transition:.3s ease;
+
+    cursor:pointer;
+
+}
+
+.heat-cell.low{
+
+    background:rgba(34,197,94,.18);
+
+}
+
+.heat-cell.medium{
+
+    background:rgba(245,158,11,.22);
+
+}
+
+.heat-cell.high{
+
+    background:rgba(249,115,22,.24);
+
+}
+
+.heat-cell.critical{
+
+    background:rgba(239,68,68,.30);
+
+}
+
+.heat-cell:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:
+
+        0 0 16px rgba(255,255,255,.12);
+
+}
+
+
+/* ===========================================================
+   FORECAST GRID
+=========================================================== */
+
+.forecast-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:16px;
+
+}
+
+
+/* ===========================================================
+   FORECAST CARD
+=========================================================== */
+
+.forecast-card{
+
+    padding:20px;
+
+    border-radius:18px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.05),
+            rgba(255,255,255,.02)
+        );
+
+    border:1px solid rgba(255,255,255,.06);
+
+    transition:.35s ease;
+
+}
+
+.forecast-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:rgba(0,217,255,.22);
+
+}
+
+.forecast-day{
+
+    color:var(--pe-text-muted);
+
+    font-size:.82rem;
+
+    margin-bottom:10px;
+
+}
+
+.forecast-risk{
+
+    color:#ffffff;
+
+    font-size:2rem;
+
+    font-weight:800;
+
+    margin-bottom:8px;
+
+}
+
+.forecast-label{
+
+    color:var(--pe-primary);
+
+    font-size:.85rem;
+
+    font-weight:600;
+
+}
+
+
+/* ===========================================================
+   PROBABILITY SECTION
+=========================================================== */
+
+.probability-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.probability-item{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:8px;
+
+}
+
+.probability-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    color:#ffffff;
+
+    font-size:.9rem;
+
+}
+
+.probability-track{
+
+    height:10px;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    background:#162536;
+
+}
+
+.probability-fill{
+
+    height:100%;
+
+    border-radius:999px;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            var(--pe-primary),
+            var(--pe-purple)
+        );
+
+    animation:fillProbability 1.4s ease;
+
+}
+
+
+/* ===========================================================
+   ANALYTICS STATS
+=========================================================== */
+
+.analytics-stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:16px;
+
+}
+
+.analytics-box{
+
+    padding:18px;
+
+    text-align:center;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.05);
+
+}
+
+.analytics-box h3{
+
+    color:#ffffff;
+
+    font-size:1.8rem;
+
+    margin-bottom:8px;
+
+}
+
+.analytics-box span{
+
+    color:var(--pe-text-muted);
+
+    font-size:.82rem;
+
+}
+
+
+/* ===========================================================
+   ANIMATIONS
+=========================================================== */
+
+@keyframes drawLine{
+
+    to{
+
+        stroke-dashoffset:0;
+
+    }
+
+}
+
+@keyframes fillProbability{
+
+    from{
+
+        width:0;
+
+    }
+
+}
+
+
+/* ===========================================================
+   PERFORMANCE
+=========================================================== */
+
+.chart-line,
+.chart-point,
+.heat-cell,
+.forecast-card,
+.analytics-box{
+
+    will-change:
+        transform,
+        opacity;
+
+}
+
+
+/* ===========================================================
+   PART 3 END
+=========================================================== */
+/* ===========================================================
+   PREDICTIONENGINE.CSS V2
+   PART 4 / 6
+   AI INTELLIGENCE + RECOMMENDATIONS + IMPACT ANALYSIS
+=========================================================== */
+
+
+/* ===========================================================
+   AI INTELLIGENCE GRID
+=========================================================== */
+
+.ai-intelligence{
+
+    display:grid;
+
+    grid-template-columns:1.4fr 1fr;
+
+    gap:24px;
+
+    align-items:start;
+
+}
+
+
+/* ===========================================================
+   LEFT COLUMN
+=========================================================== */
+
+.ai-analysis{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:22px;
+
+}
+
+
+/* ===========================================================
+   RIGHT COLUMN
+=========================================================== */
+
+.ai-side-panels{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:22px;
+
+}
+
+
+/* ===========================================================
+   RECOMMENDATION CARD
+=========================================================== */
+
+.ai-recommendation{
+
+    padding:24px;
+
+}
+
+.recommendation-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+}
+
+
+/* ===========================================================
+   RECOMMENDATION ITEM
+=========================================================== */
+
+.recommendation-item{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:16px;
+
+    padding:16px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.05);
+
+    transition:.35s ease;
+
+}
+
+.recommendation-item:hover{
+
+    transform:translateX(6px);
+
+    border-color:rgba(0,217,255,.28);
+
+    background:rgba(0,217,255,.05);
+
+}
+
+
+/* ===========================================================
+   RECOMMENDATION ICON
+=========================================================== */
+
+.recommendation-icon{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-shrink:0;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(0,217,255,.14),
+            rgba(37,99,235,.12)
+        );
+
+    color:var(--pe-primary);
+
+    font-size:1.35rem;
+
+}
+
+
+/* ===========================================================
+   RECOMMENDATION CONTENT
+=========================================================== */
+
+.recommendation-content{
+
+    flex:1;
+
+}
+
+.recommendation-content h4{
+
+    color:#ffffff;
+
+    margin-bottom:6px;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+}
+
+.recommendation-content p{
+
+    color:var(--pe-text-secondary);
+
+    line-height:1.65;
+
+    font-size:.88rem;
+
+}
+
+
+/* ===========================================================
+   PRIORITY BADGES
+=========================================================== */
+
+.priority-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:6px 14px;
+
+    border-radius:999px;
+
+    font-size:.75rem;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+}
+
+.priority-low{
+
+    background:rgba(34,197,94,.15);
+
+    color:var(--pe-success);
+
+}
+
+.priority-medium{
+
+    background:rgba(245,158,11,.15);
+
+    color:var(--pe-warning);
+
+}
+
+.priority-high{
+
+    background:rgba(249,115,22,.15);
+
+    color:#f97316;
+
+}
+
+.priority-critical{
+
+    background:rgba(239,68,68,.15);
+
+    color:var(--pe-danger);
+
+}
+
+
+/* ===========================================================
+   WEATHER ANALYSIS
+=========================================================== */
+
+.weather-analysis{
+
+    padding:24px;
+
+}
+
+.weather-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:16px;
+
+}
+
+.weather-box{
+
+    padding:18px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.04);
+
+    text-align:center;
+
+    border:1px solid rgba(255,255,255,.05);
+
+}
+
+.weather-box h3{
+
+    color:#ffffff;
+
+    font-size:1.8rem;
+
+    margin-bottom:8px;
+
+}
+
+.weather-box span{
+
+    color:var(--pe-text-muted);
+
+    font-size:.82rem;
+
+}
+
+
+/* ===========================================================
+   POPULATION IMPACT
+=========================================================== */
+
+.population-impact{
+
+    padding:24px;
+
+}
+
+.impact-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:16px;
+
+}
+
+.impact-card{
+
+    padding:18px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.05);
+
+}
+
+.impact-card h3{
+
+    color:#ffffff;
+
+    font-size:1.7rem;
+
+    margin-bottom:8px;
+
+}
+
+.impact-card span{
+
+    color:var(--pe-text-muted);
+
+    font-size:.82rem;
+
+}
+
+
+/* ===========================================================
+   RECOVERY ESTIMATION
+=========================================================== */
+
+.recovery-panel{
+
+    padding:24px;
+
+}
+
+.recovery-timeline{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.recovery-stage{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+.recovery-node{
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    background:var(--pe-primary);
+
+    box-shadow:
+
+        0 0 12px rgba(0,217,255,.5);
+
+    flex-shrink:0;
+
+}
+
+.recovery-info h4{
+
+    color:#ffffff;
+
+    margin-bottom:4px;
+
+}
+
+.recovery-info span{
+
+    color:var(--pe-text-muted);
+
+    font-size:.82rem;
+
+}
+
+
+/* ===========================================================
+   MODEL CONFIDENCE
+=========================================================== */
+
+.model-confidence{
+
+    padding:24px;
+
+}
+
+.model-score{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-bottom:20px;
+
+}
+
+.score-circle{
+
+    width:140px;
+
+    height:140px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border:5px solid rgba(0,217,255,.25);
+
+    background:
+
+        radial-gradient(
+
+            rgba(0,217,255,.15),
+
+            transparent 75%
+
+        );
+
+}
+
+.score-circle h2{
+
+    color:#ffffff;
+
+    font-size:2.4rem;
+
+    font-weight:800;
+
+}
+
+
+/* ===========================================================
+   MODEL METRICS
+=========================================================== */
+
+.metric-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+}
+
+.metric-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    color:#ffffff;
+
+    font-size:.9rem;
+
+}
+
+.metric-row span{
+
+    color:var(--pe-text-muted);
+
+}
+
+
+/* ===========================================================
+   DEPLOYMENT PANEL
+=========================================================== */
+
+.resource-deployment{
+
+    padding:24px;
+
+}
+
+.deployment-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+}
+
+.deployment-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:14px 16px;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,.04);
+
+}
+
+.deployment-item strong{
+
+    color:#ffffff;
+
+}
+
+.deployment-item span{
+
+    color:var(--pe-primary);
+
+    font-weight:700;
+
+}
+
+
+/* ===========================================================
+   AI THINKING INDICATOR
+=========================================================== */
+
+.ai-thinking{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:var(--pe-primary);
+
+    font-weight:600;
+
+}
+
+.thinking-dots{
+
+    display:flex;
+
+    gap:6px;
+
+}
+
+.thinking-dots span{
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--pe-primary);
+
+    animation:thinkingPulse 1.2s infinite;
+
+}
+
+.thinking-dots span:nth-child(2){
+
+    animation-delay:.2s;
+
+}
+
+.thinking-dots span:nth-child(3){
+
+    animation-delay:.4s;
+
+}
+
+
+/* ===========================================================
+   ANIMATIONS
+=========================================================== */
+
+@keyframes thinkingPulse{
+
+    0%{
+
+        transform:scale(.6);
+
+        opacity:.35;
+
+    }
+
+    50%{
+
+        transform:scale(1.3);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:scale(.6);
+
+        opacity:.35;
+
+    }
+
+}
+
+
+/* ===========================================================
+   PERFORMANCE
+=========================================================== */
+
+.recommendation-item,
+.weather-box,
+.impact-card,
+.deployment-item,
+.score-circle{
+
+    will-change:
+        transform,
+        opacity;
+
+}
+
+
+/* ===========================================================
+   PART 4 END
+=========================================================== */
+/* ===========================================================
+   PREDICTIONENGINE.CSS V2
+   PART 5 / 6
+   LIVE MONITORING + ALERTS + EVENT TIMELINE + AI LOGS
+=========================================================== */
+
+
+/* ===========================================================
+   LIVE MONITORING GRID
+=========================================================== */
+
+.live-monitoring{
+
+    display:grid;
+
+    grid-template-columns:1.2fr .8fr;
+
+    gap:24px;
+
+    align-items:start;
+
+}
+
+
+/* ===========================================================
+   LEFT COLUMN
+=========================================================== */
+
+.monitor-left{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:24px;
+
+}
+
+
+/* ===========================================================
+   RIGHT COLUMN
+=========================================================== */
+
+.monitor-right{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:24px;
+
+}
+
+
+/* ===========================================================
+   LIVE FEED
+=========================================================== */
+
+.live-feed{
+
+    padding:24px;
+
+}
+
+.feed-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+    max-height:420px;
+
+    overflow-y:auto;
+
+    padding-right:6px;
+
+}
+
+
+/* ===========================================================
+   FEED ITEM
+=========================================================== */
+
+.feed-item{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:16px;
+
+    padding:16px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.05);
+
+    transition:.35s ease;
+
+}
+
+.feed-item:hover{
+
+    transform:translateX(6px);
+
+    background:rgba(0,217,255,.05);
+
+    border-color:rgba(0,217,255,.22);
+
+}
+
+
+/* ===========================================================
+   FEED ICON
+=========================================================== */
+
+.feed-icon{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-shrink:0;
+
+    color:var(--pe-primary);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(0,217,255,.12),
+            rgba(37,99,235,.12)
+        );
+
+}
+
+
+/* ===========================================================
+   FEED CONTENT
+=========================================================== */
+
+.feed-content{
+
+    flex:1;
+
+}
+
+.feed-content h4{
+
+    color:#ffffff;
+
+    font-size:.95rem;
+
+    margin-bottom:6px;
+
+}
+
+.feed-content p{
+
+    color:var(--pe-text-secondary);
+
+    line-height:1.6;
+
+    font-size:.84rem;
+
+}
+
+.feed-time{
+
+    display:inline-block;
+
+    margin-top:10px;
+
+    color:var(--pe-primary);
+
+    font-size:.76rem;
+
+}
+
+
+/* ===========================================================
+   ALERT CENTER
+=========================================================== */
+
+.alert-center{
+
+    padding:24px;
+
+}
+
+.alert-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+
+/* ===========================================================
+   ALERT CARD
+=========================================================== */
+
+.alert-card{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:16px;
+
+    border-radius:18px;
+
+    border-left:5px solid;
+
+    background:rgba(255,255,255,.03);
+
+    transition:.3s ease;
+
+}
+
+.alert-card:hover{
+
+    transform:translateX(5px);
+
+}
+
+
+/* ===========================================================
+   ALERT TYPES
+=========================================================== */
+
+.alert-card.info{
+
+    border-color:var(--pe-primary);
+
+}
+
+.alert-card.warning{
+
+    border-color:var(--pe-warning);
+
+}
+
+.alert-card.high{
+
+    border-color:#f97316;
+
+}
+
+.alert-card.critical{
+
+    border-color:var(--pe-danger);
+
+    background:rgba(239,68,68,.08);
+
+}
+
+
+/* ===========================================================
+   ALERT DOT
+=========================================================== */
+
+.alert-dot{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    flex-shrink:0;
+
+    animation:alertBlink 1.5s infinite;
+
+}
+
+.alert-card.info .alert-dot{
+
+    background:var(--pe-primary);
+
+}
+
+.alert-card.warning .alert-dot{
+
+    background:var(--pe-warning);
+
+}
+
+.alert-card.high .alert-dot{
+
+    background:#f97316;
+
+}
+
+.alert-card.critical .alert-dot{
+
+    background:var(--pe-danger);
+
+}
+
+
+/* ===========================================================
+   EVENT TIMELINE
+=========================================================== */
+
+.event-timeline{
+
+    padding:24px;
+
+}
+
+.timeline-list{
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:22px;
+
+    margin-left:14px;
+
+}
+
+.timeline-list::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:7px;
+
+    top:0;
+
+    bottom:0;
+
+    width:2px;
+
+    background:rgba(0,217,255,.18);
+
+}
+
+
+/* ===========================================================
+   TIMELINE ITEM
+=========================================================== */
+
+.timeline-item{
+
+    position:relative;
+
+    display:flex;
+
+    gap:18px;
+
+}
+
+.timeline-node{
+
+    width:16px;
+
+    height:16px;
+
+    border-radius:50%;
+
+    background:var(--pe-primary);
+
+    box-shadow:
+
+        0 0 10px rgba(0,217,255,.6);
+
+    flex-shrink:0;
+
+    z-index:2;
+
+}
+
+.timeline-content{
+
+    flex:1;
+
+}
+
+.timeline-content h4{
+
+    color:#ffffff;
+
+    margin-bottom:5px;
+
+}
+
+.timeline-content p{
+
+    color:var(--pe-text-secondary);
+
+    line-height:1.6;
+
+    font-size:.84rem;
+
+}
+
+.timeline-time{
+
+    color:var(--pe-text-muted);
+
+    font-size:.75rem;
+
+}
+
+
+/* ===========================================================
+   AI PROCESSING LOG
+=========================================================== */
+
+.ai-log{
+
+    padding:24px;
+
+}
+
+.log-window{
+
+    max-height:260px;
+
+    overflow-y:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    padding-right:4px;
+
+}
+
+.log-entry{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:12px 14px;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,.03);
+
+    font-family:"Consolas",monospace;
+
+    font-size:.8rem;
+
+}
+
+.log-entry span{
+
+    color:var(--pe-text-secondary);
+
+}
+
+.log-entry strong{
+
+    color:var(--pe-primary);
+
+}
+
+
+/* ===========================================================
+   SYSTEM ACTIVITY
+=========================================================== */
+
+.system-activity{
+
+    padding:24px;
+
+}
+
+.activity-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:16px;
+
+}
+
+.activity-box{
+
+    padding:18px;
+
+    text-align:center;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.05);
+
+    transition:.3s ease;
+
+}
+
+.activity-box:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.activity-box h3{
+
+    color:#ffffff;
+
+    font-size:1.9rem;
+
+    margin-bottom:8px;
+
+}
+
+.activity-box span{
+
+    color:var(--pe-text-muted);
+
+    font-size:.82rem;
+
+}
+
+
+/* ===========================================================
+   SCROLLBAR
+=========================================================== */
+
+.feed-list::-webkit-scrollbar,
+.log-window::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+.feed-list::-webkit-scrollbar-thumb,
+.log-window::-webkit-scrollbar-thumb{
+
+    background:var(--pe-primary);
+
+    border-radius:999px;
+
+}
+
+
+/* ===========================================================
+   LIVE INDICATOR
+=========================================================== */
+
+.live-indicator{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:var(--pe-success);
+
+    font-weight:700;
+
+    font-size:.85rem;
+
+}
+
+.live-indicator::before{
+
+    content:"";
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:var(--pe-success);
+
+    animation:livePulse 1.8s infinite;
+
+}
+
+
+/* ===========================================================
+   NOTIFICATION BADGE
+=========================================================== */
+
+.notification-badge{
+
+    min-width:26px;
+
+    height:26px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:999px;
+
+    background:var(--pe-danger);
+
+    color:#ffffff;
+
+    font-size:.72rem;
+
+    font-weight:700;
+
+    box-shadow:
+
+        0 0 12px rgba(239,68,68,.45);
+
+}
+
+
+/* ===========================================================
+   ANIMATIONS
+=========================================================== */
+
+@keyframes livePulse{
+
+    0%{
+
+        transform:scale(.8);
+
+        opacity:.6;
+
+    }
+
+    50%{
+
+        transform:scale(1.35);
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:scale(.8);
+
+        opacity:.6;
+
+    }
+
+}
+
+@keyframes alertBlink{
+
+    0%,100%{
+
+        opacity:1;
+
+    }
+
+    50%{
+
+        opacity:.25;
+
+    }
+
+}
+
+
+/* ===========================================================
+   PERFORMANCE
+=========================================================== */
+
+.feed-item,
+.alert-card,
+.timeline-item,
+.activity-box,
+.notification-badge{
+
+    will-change:
+        transform,
+        opacity;
+
+}
+
+
+/* ===========================================================
+   PART 5 END
+=========================================================== */
+/* ===========================================================
+   PREDICTIONENGINE.CSS V2
+   PART 6 / 6
+   RESPONSIVE + ACCESSIBILITY + PERFORMANCE + FINAL POLISH
+=========================================================== */
+
+
+/* ===========================================================
+   ULTRA WIDE (4K)
+=========================================================== */
+
+@media (min-width:2200px){
+
+    .prediction-engine{
+
+        min-height:950px;
+
+    }
+
+    .prediction-dashboard{
+
+        grid-template-columns:420px 1fr;
+
+    }
+
+    .analytics-grid{
+
+        grid-template-columns:2.3fr 1fr;
+
+    }
+
+}
+
+
+/* ===========================================================
+   LARGE DESKTOP
+=========================================================== */
+
+@media (max-width:1800px){
+
+    .prediction-content{
+
+        padding:24px;
+
+    }
+
+}
+
+
+/* ===========================================================
+   LAPTOP
+=========================================================== */
+
+@media (max-width:1500px){
+
+    .prediction-dashboard{
+
+        grid-template-columns:340px 1fr;
+
+    }
+
+    .analytics-grid{
+
+        grid-template-columns:1.6fr 1fr;
+
+    }
+
+    .forecast-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+
+/* ===========================================================
+   SMALL LAPTOP
+=========================================================== */
+
+@media (max-width:1280px){
+
+    .prediction-dashboard{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .analytics-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .ai-intelligence{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .live-monitoring{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+/* ===========================================================
+   TABLET
+=========================================================== */
+
+@media (max-width:992px){
+
+    .prediction-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:18px;
+
+    }
+
+    .prediction-actions{
+
+        width:100%;
+
+        flex-wrap:wrap;
+
+    }
+
+    .kpi-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .quick-metrics{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .forecast-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .analytics-stats{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .weather-grid,
+
+    .impact-grid,
+
+    .activity-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+/* ===========================================================
+   MOBILE
+=========================================================== */
+
+@media (max-width:768px){
+
+    .prediction-engine{
+
+        border-radius:20px;
+
+        min-height:auto;
+
+    }
+
+    .prediction-content{
+
+        padding:18px;
+
+        gap:18px;
+
+    }
+
+    .prediction-title{
+
+        align-items:flex-start;
+
+    }
+
+    .prediction-title h2{
+
+        font-size:1.5rem;
+
+    }
+
+    .prediction-icon{
+
+        width:54px;
+
+        height:54px;
+
+        font-size:1.6rem;
+
+    }
+
+    .risk-meter{
+
+        width:210px;
+
+        height:210px;
+
+    }
+
+    .risk-ring::before{
+
+        width:170px;
+
+        height:170px;
+
+    }
+
+    .risk-score h1{
+
+        font-size:3rem;
+
+    }
+
+    .quick-metrics{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .forecast-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .heatmap-grid{
+
+        grid-template-columns:repeat(4,1fr);
+
+    }
+
+}
+
+
+/* ===========================================================
+   SMALL MOBILE
+=========================================================== */
+
+@media (max-width:480px){
+
+    .prediction-content{
+
+        padding:14px;
+
+    }
+
+    .prediction-header{
+
+        gap:14px;
+
+    }
+
+    .prediction-title{
+
+        gap:14px;
+
+    }
+
+    .prediction-title h2{
+
+        font-size:1.3rem;
+
+    }
+
+    .prediction-title p{
+
+        font-size:.82rem;
+
+    }
+
+    .risk-meter{
+
+        width:180px;
+
+        height:180px;
+
+    }
+
+    .risk-ring::before{
+
+        width:145px;
+
+        height:145px;
+
+    }
+
+    .risk-score h1{
+
+        font-size:2.4rem;
+
+    }
+
+    .prediction-card{
+
+        border-radius:18px;
+
+    }
+
+    .chart-container{
+
+        min-height:250px;
+
+    }
+
+}
+
+
+/* ===========================================================
+   TOUCH DEVICES
+=========================================================== */
+
+@media (hover:none){
+
+    .prediction-card:hover,
+
+    .kpi-card:hover,
+
+    .forecast-card:hover,
+
+    .recommendation-item:hover,
+
+    .feed-item:hover,
+
+    .activity-box:hover{
+
+        transform:none;
+
+    }
+
+}
+
+
+/* ===========================================================
+   FOCUS STATES
+=========================================================== */
+
+.chart-filter:focus-visible,
+
+button:focus-visible,
+
+.prediction-card:focus-visible{
+
+    outline:2px solid var(--pe-primary);
+
+    outline-offset:4px;
+
+}
+
+
+/* ===========================================================
+   REDUCED MOTION
+=========================================================== */
+
+@media (prefers-reduced-motion:reduce){
+
+    *{
+
+        animation:none !important;
+
+        transition:none !important;
+
+        scroll-behavior:auto !important;
+
+    }
+
+}
+
+
+/* ===========================================================
+   HIGH CONTRAST
+=========================================================== */
+
+@media (prefers-contrast:more){
+
+    .prediction-card,
+
+    .kpi-card,
+
+    .forecast-card,
+
+    .recommendation-item,
+
+    .feed-item,
+
+    .alert-card{
+
+        border:2px solid rgba(255,255,255,.30);
+
+    }
+
+}
+
+
+/* ===========================================================
+   PRINT
+=========================================================== */
+
+@media print{
+
+    .prediction-engine{
+
+        background:#ffffff;
+
+        color:#000000;
+
+        border:1px solid #cccccc;
+
+        box-shadow:none;
+
+    }
+
+    .ai-light,
+
+    .chart-grid,
+
+    .processing-dot,
+
+    .thinking-dots,
+
+    .live-indicator{
+
+        display:none;
+
+    }
+
+}
+
+
+/* ===========================================================
+   PERFORMANCE
+=========================================================== */
+
+.prediction-engine,
+
+.prediction-dashboard,
+
+.analytics-grid,
+
+.ai-intelligence,
+
+.live-monitoring,
+
+.prediction-card,
+
+.kpi-card,
+
+.forecast-card,
+
+.feed-item,
+
+.recommendation-item,
+
+.alert-card{
+
+    backface-visibility:hidden;
+
+    transform:translateZ(0);
+
+}
+
+
+/* ===========================================================
+   LAYOUT CONTAINMENT
+=========================================================== */
+
+.prediction-card,
+
+.chart-container,
+
+.live-feed,
+
+.ai-log{
+
+    contain:layout paint;
+
+}
+
+
+/* ===========================================================
+   READY ANIMATION
+=========================================================== */
+
+.prediction-engine.ready .prediction-card,
+
+.prediction-engine.ready .kpi-card,
+
+.prediction-engine.ready .forecast-card{
+
+    animation:fadeUp .6s ease both;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* ===========================================================
+   GLOBAL UTILITIES
+=========================================================== */
+
+.hidden{
+
+    display:none !important;
+
+}
+
+.w-100{
+
+    width:100%;
+
+}
+
+.h-100{
+
+    height:100%;
+
+}
+
+.flex{
+
+    display:flex;
+
+}
+
+.flex-center{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.space-between{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.text-center{
+
+    text-align:center;
+
+}
+
+.text-primary{
+
+    color:var(--pe-primary);
+
+}
+
+.text-success{
+
+    color:var(--pe-success);
+
+}
+
+.text-warning{
+
+    color:var(--pe-warning);
+
+}
+
+.text-danger{
+
+    color:var(--pe-danger);
+
+}
+
+.text-muted{
+
+    color:var(--pe-text-muted);
+
+}
+
+.glow{
+
+    box-shadow:
+
+        0 0 24px rgba(0,217,255,.25);
+
+}
+
+
+/* ===========================================================
+   END OF PREDICTIONENGINE.CSS V2
+   VERSION 2.0
+=========================================================== */

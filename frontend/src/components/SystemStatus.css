@@ -1,81 +1,275 @@
-.system-status{
+/* ===========================================================
+   SYSTEM STATUS v2
+=========================================================== */
+
+.system-monitor{
     display:flex;
     flex-direction:column;
-    gap:14px;
+    gap:24px;
+}
+
+/* ===========================================================
+   HEADER
+=========================================================== */
+
+.system-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.system-header h2{
+    color:#ffffff;
+    font-size:1.2rem;
+    margin-bottom:4px;
+}
+
+.system-header span{
+    color:#9eb4cc;
+    font-size:.9rem;
+}
+
+.system-live{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#22c55e;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+.live-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#22c55e;
+    animation:livePulse 1.5s infinite;
+}
+
+/* ===========================================================
+   SYSTEM GRID
+=========================================================== */
+
+.system-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
 }
 
 .system-card{
     display:flex;
     align-items:center;
-    justify-content:space-between;
     gap:18px;
-
-    padding:16px;
-
-    border-radius:16px;
-
+    padding:20px;
     background:rgba(255,255,255,.04);
-
     border:1px solid rgba(255,255,255,.08);
-
+    border-radius:18px;
     transition:.35s;
+    position:relative;
+    overflow:hidden;
+}
+
+.system-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.05),
+        transparent
+    );
+    transform:translateX(-100%);
+}
+
+.system-card:hover::before{
+    animation:shine 1.2s linear;
 }
 
 .system-card:hover{
-    transform:translateX(6px);
+    transform:translateY(-6px);
     border-color:#00d9ff;
-    box-shadow:0 0 18px rgba(0,217,255,.18);
+    box-shadow:0 0 24px rgba(0,217,255,.18);
 }
 
 .system-icon{
-
-    width:48px;
-    height:48px;
-
-    border-radius:14px;
-
+    width:58px;
+    height:58px;
+    border-radius:16px;
     display:flex;
-    align-items:center;
     justify-content:center;
-
-    font-size:1.2rem;
-
-    background:#00d9ff20;
-
+    align-items:center;
+    background:rgba(0,217,255,.12);
     color:#00d9ff;
+    font-size:1.5rem;
 }
 
 .system-info{
     flex:1;
 }
 
-.system-info h4{
-    margin-bottom:4px;
+.system-info h3{
+    color:#fff;
+    font-size:1rem;
+    margin-bottom:5px;
 }
 
-.system-info p{
-    font-size:.85rem;
-    color:#9fb6d3;
+.system-info span{
+    color:#9eb4cc;
+    font-size:.88rem;
 }
 
-.system-state{
-
-    padding:7px 14px;
-
-    border-radius:20px;
-
-    font-size:.78rem;
-
+.system-load{
+    font-size:1.2rem;
     font-weight:700;
-
-    letter-spacing:.5px;
+    color:#fff;
 }
 
-.system-state.healthy{
+/* ===========================================================
+   HEALTH COLORS
+=========================================================== */
 
-    color:#22c55e;
+.system-card.healthy{
+    border-left:5px solid #22c55e;
+}
 
-    background:#22c55e20;
+.system-card.warning{
+    border-left:5px solid #f59e0b;
+}
 
-    border:1px solid #22c55e55;
+.system-card.critical{
+    border-left:5px solid #ef4444;
+}
+
+/* ===========================================================
+   OVERVIEW
+=========================================================== */
+
+.health-overview{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.overview-card{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:22px;
+    text-align:center;
+    transition:.35s;
+}
+
+.overview-card:hover{
+    transform:translateY(-5px);
+    border-color:#00d9ff;
+    box-shadow:0 0 18px rgba(0,217,255,.15);
+}
+
+.overview-card svg{
+    font-size:1.8rem;
+    color:#00d9ff;
+    margin-bottom:12px;
+}
+
+.overview-card h4{
+    color:#b8c5d8;
+    margin-bottom:8px;
+    font-size:.95rem;
+}
+
+.overview-card strong{
+    color:#fff;
+    font-size:1.2rem;
+}
+
+/* ===========================================================
+   INCIDENT BOX
+=========================================================== */
+
+.incident-box{
+    padding:22px;
+    border-radius:20px;
+    border:1px solid rgba(245,158,11,.25);
+    background:linear-gradient(
+        135deg,
+        rgba(245,158,11,.10),
+        rgba(255,255,255,.03)
+    );
+}
+
+.incident-title{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:#f59e0b;
+    font-weight:700;
+    margin-bottom:14px;
+}
+
+.incident-title svg{
+    font-size:1.1rem;
+}
+
+.incident-box p{
+    color:#d5e2f0;
+    line-height:1.7;
+}
+
+.incident-box strong{
+    color:#00d9ff;
+}
+
+/* ===========================================================
+   ANIMATIONS
+=========================================================== */
+
+@keyframes livePulse{
+
+    0%{
+        box-shadow:0 0 0 0 rgba(34,197,94,.6);
+    }
+
+    70%{
+        box-shadow:0 0 0 12px rgba(34,197,94,0);
+    }
+
+    100%{
+        box-shadow:0 0 0 0 rgba(34,197,94,0);
+    }
+
+}
+
+@keyframes shine{
+
+    from{
+        transform:translateX(-100%);
+    }
+
+    to{
+        transform:translateX(220%);
+    }
+
+}
+
+/* ===========================================================
+   RESPONSIVE
+=========================================================== */
+
+@media(max-width:950px){
+
+    .system-grid{
+        grid-template-columns:1fr;
+    }
+
+    .health-overview{
+        grid-template-columns:1fr;
+    }
+
+    .system-header{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
 }

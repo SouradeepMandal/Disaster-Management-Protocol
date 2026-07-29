@@ -1,10 +1,13 @@
 import "./Dashboard.css";
+
+import DashboardEffects from "./DashboardEffects";
+import IndiaMap from "./IndiaMap";
+import PredictionEngine from "./PredictionEngine";
 import DisasterTimeline from "./DisasterTimeline";
 import ActionCenter from "./ActionCenter";
 import SystemStatus from "./SystemStatus";
-import MiniAnalytics from "./MiniAnalytics";
-import DashboardEffects from "./DashboardEffects";
-import IndiaMap from "./IndiaMap";
+import MissionIntelligence from "./MissionIntelligence";
+
 import {
   FaAmbulance,
   FaHospital,
@@ -12,27 +15,57 @@ import {
   FaHeartbeat,
 } from "react-icons/fa";
 
-import {
-  MdEmergency,
-} from "react-icons/md";
+import { MdEmergency } from "react-icons/md";
 
 function Dashboard() {
+
+  const metrics = [
+    {
+      value: "24",
+      title: "Active Incidents",
+      subtitle: "+12 Today",
+      icon: <MdEmergency />,
+      color: "emergency",
+    },
+    {
+      value: "86",
+      title: "Rescue Teams",
+      subtitle: "Ready to Deploy",
+      icon: <FaAmbulance />,
+      color: "ambulance",
+    },
+    {
+      value: "132",
+      title: "Safe Shelters",
+      subtitle: "Available",
+      icon: <FaHospital />,
+      color: "hospital",
+    },
+    {
+      value: "98%",
+      title: "Response Rate",
+      subtitle: "Excellent",
+      icon: <FaUsers />,
+      color: "response",
+    },
+  ];
+
   return (
     <section className="dashboard">
-      <DashboardEffects/>
 
-      {/* ================= HEADER ================= */}
+      <DashboardEffects />
 
-      <div className="dashboard-header">
+      {/* ======================================================
+                          HEADER
+      ======================================================= */}
+
+      <header className="dashboard-header">
 
         <div className="header-left">
 
           <div className="live-status">
-
             <span className="live-dot"></span>
-
             LIVE COMMAND CENTER
-
           </div>
 
           <h2>
@@ -40,7 +73,8 @@ function Dashboard() {
           </h2>
 
           <p>
-            AI Powered Emergency Coordination & Disaster Monitoring Platform
+            AI Powered Emergency Coordination &
+            Disaster Monitoring Platform
           </p>
 
         </div>
@@ -52,11 +86,8 @@ function Dashboard() {
             <MdEmergency className="info-icon" />
 
             <div>
-
               <h4>AI Status</h4>
-
               <span>Monitoring Active</span>
-
             </div>
 
           </div>
@@ -66,115 +97,62 @@ function Dashboard() {
             <FaHeartbeat className="info-icon" />
 
             <div>
-
               <h4>Last Updated</h4>
-
               <span>2 Seconds Ago</span>
-
             </div>
 
           </div>
 
         </div>
 
-      </div>
+      </header>
 
-      {/* ================= METRIC CARDS ================= */}
+      {/* ======================================================
+                          METRICS
+      ======================================================= */}
 
-      <div className="metrics-grid">
+      <section className="metrics-grid">
 
-        <div className="metric-card">
+        {metrics.map((metric, index) => (
 
-          <div className="metric-icon emergency">
+          <article
+            className="metric-card"
+            key={index}
+          >
 
-            <MdEmergency />
+            <div className={`metric-icon ${metric.color}`}>
+              {metric.icon}
+            </div>
 
-          </div>
+            <div className="metric-content">
+              <h3>{metric.value}</h3>
+              <h4>{metric.title}</h4>
+              <p>{metric.subtitle}</p>
+            </div>
 
-          <div className="metric-content">
+          </article>
 
-            <h3>24</h3>
+        ))}
 
-            <h4>Active Incidents</h4>
+      </section>
 
-            <p>+12 Today</p>
+      {/* ======================================================
+                    MAIN ENTERPRISE LAYOUT
+      ======================================================= */}
 
-          </div>
+      <main className="dashboard-grid">
 
-        </div>
-
-        <div className="metric-card">
-
-          <div className="metric-icon ambulance">
-
-            <FaAmbulance />
-
-          </div>
-
-          <div className="metric-content">
-
-            <h3>86</h3>
-
-            <h4>Rescue Teams</h4>
-
-            <p>Ready to Deploy</p>
-
-          </div>
-
-        </div>
-
-        <div className="metric-card">
-
-          <div className="metric-icon hospital">
-
-            <FaHospital />
-
-          </div>
-
-          <div className="metric-content">
-
-            <h3>132</h3>
-
-            <h4>Safe Shelters</h4>
-
-            <p>Available</p>
-
-          </div>
-
-        </div>
-
-        <div className="metric-card">
-
-          <div className="metric-icon response">
-
-            <FaUsers />
-
-          </div>
-
-          <div className="metric-content">
-
-            <h3>98%</h3>
-
-            <h4>Response Rate</h4>
-
-            <p>Excellent</p>
-
-          </div>
-
-        </div>
-
-      </div>
-            {/* ================= MAIN GRID ================= */}
-
-      <div className="dashboard-main">
-
-        {/* ========== LEFT SECTION ========== */}
+        {/* ==================================================
+                        LEFT COLUMN
+        =================================================== */}
 
         <div className="dashboard-left">
 
-          {/* Live Map */}
+          {/* ===========================
+                LIVE DISASTER MAP
+          ============================ */}
 
-          <div className="panel map-panel">
+          <section className="panel map-panel">
 
             <div className="panel-header">
 
@@ -186,16 +164,15 @@ function Dashboard() {
 
             </div>
 
-            <IndiaMap/>
+            <IndiaMap />
 
-              
-            
+          </section>
 
-          </div>
+          {/* ===========================
+               AI PREDICTION ENGINE
+          ============================ */}
 
-          {/* AI Prediction */}
-
-          <div className="panel ai-panel">
+          <section className="panel prediction-panel">
 
             <div className="panel-header">
 
@@ -207,115 +184,63 @@ function Dashboard() {
 
             </div>
 
-            <div className="prediction-chart">
+            <PredictionEngine />
 
-              <div className="bar" style={{ height: "40%" }}></div>
-              <div className="bar" style={{ height: "60%" }}></div>
-              <div className="bar" style={{ height: "90%" }}></div>
-              <div className="bar" style={{ height: "70%" }}></div>
-              <div className="bar" style={{ height: "100%" }}></div>
-              <div className="bar" style={{ height: "80%" }}></div>
-              <div className="bar" style={{ height: "65%" }}></div>
-              <div className="bar" style={{ height: "95%" }}></div>
+          </section>
+
+          {/* ===========================
+               MISSION INTELLIGENCE
+          ============================ */}
+
+          <section className="panel mission-panel">
+
+            <div className="panel-header">
+
+              <h3>🧠 Mission Intelligence</h3>
+
+              <span className="status ai">
+                ACTIVE
+              </span>
 
             </div>
 
-            <div className="prediction-text">
+            <MissionIntelligence />
 
-    <h3>High Flood Probability</h3>
-
-    <p>
-        AI models predict an elevated flood risk across Eastern India
-        based on rainfall intensity, river discharge and satellite
-        observations.
-    </p>
-
-</div>
-
-<div className="prediction-details">
-
-    <div className="prediction-item">
-
-        <span>AI Confidence</span>
-
-        <strong>96.8%</strong>
-
-    </div>
-
-    <div className="prediction-item critical">
-
-        <span>Risk Level</span>
-
-        <strong>Critical</strong>
-
-    </div>
-
-    <div className="prediction-item">
-
-        <span>Prediction Window</span>
-
-        <strong>3–6 Hours</strong>
-
-    </div>
-
-</div>
-
-<div className="ai-recommendation">
-
-    <h4>AI Recommendation</h4>
-
-    <p>
-        Deploy emergency response teams towards Kolkata, Hooghly and
-        North 24 Parganas. Keep medical units and evacuation shelters
-        on standby.
-    </p>
-
-</div>
-            <div className="prediction-stats">
-
-  <div className="prediction-stat">
-    <h4>18</h4>
-    <span>Emergency Teams</span>
-  </div>
-
-  <div className="prediction-stat">
-    <h4>96%</h4>
-    <span>AI Accuracy</span>
-  </div>
-
-  <div className="prediction-stat">
-    <h4>4.8m</h4>
-    <span>Avg Response</span>
-  </div>
-
-</div>
-
-          </div>
+          </section>
 
         </div>
 
-        {/* ========== RIGHT SECTION ========== */}
+        {/* ==================================================
+                        RIGHT COLUMN
+           (Continue in Part 2)
+        =================================================== */}
 
         <div className="dashboard-right">
+                    {/* ===========================
+                LIVE DISASTER TIMELINE
+          ============================ */}
 
-          <div className="panel alerts-panel">
+          <section className="panel timeline-panel">
 
-    <div className="panel-header">
+            <div className="panel-header">
 
-        <h3>📡 Live Disaster Timeline</h3>
+              <h3>📡 Live Disaster Timeline</h3>
 
-        <span className="status live">
-            LIVE
-        </span>
+              <span className="status live">
+                LIVE
+              </span>
 
-    </div>
+            </div>
 
-    <DisasterTimeline />
+            <DisasterTimeline />
 
-</div>
-                    {/* Weather Intelligence */}
+          </section>
 
-          <div className="panel weather-panel">
+          {/* ===========================
+               WEATHER INTELLIGENCE
+          ============================ */}
+
+          <section className="panel weather-panel">
 
             <div className="panel-header">
 
@@ -343,27 +268,33 @@ function Dashboard() {
               <strong>92%</strong>
             </div>
 
-          </div>
-          <div className="panel action-panel">
+          </section>
 
-    <div className="panel-header">
+          {/* ===========================
+               AI OPERATIONS CENTER
+          ============================ */}
 
-        <h3>🤖 AI Operations Center</h3>
+          <section className="panel action-panel">
 
-        <span className="status ai">
+            <div className="panel-header">
 
-            READY
+              <h3>🤖 AI Operations Center</h3>
 
-        </span>
+              <span className="status ai">
+                READY
+              </span>
 
-    </div>
+            </div>
 
-    <ActionCenter/>
+            <ActionCenter />
 
-</div>
-          {/* Resource Availability */}
+          </section>
 
-          <div className="panel resources-panel">
+          {/* ===========================
+               RESOURCE AVAILABILITY
+          ============================ */}
+
+          <section className="panel resources-panel">
 
             <div className="panel-header">
 
@@ -374,17 +305,12 @@ function Dashboard() {
             <div className="resource">
 
               <div className="resource-title">
-
                 <span>Ambulances</span>
-
                 <span>88%</span>
-
               </div>
 
               <div className="resource-bar">
-
                 <div className="fill ambulance-fill"></div>
-
               </div>
 
             </div>
@@ -392,17 +318,12 @@ function Dashboard() {
             <div className="resource">
 
               <div className="resource-title">
-
                 <span>Fire Trucks</span>
-
                 <span>73%</span>
-
               </div>
 
               <div className="resource-bar">
-
                 <div className="fill fire-fill"></div>
-
               </div>
 
             </div>
@@ -410,17 +331,12 @@ function Dashboard() {
             <div className="resource">
 
               <div className="resource-title">
-
                 <span>Medical Teams</span>
-
                 <span>94%</span>
-
               </div>
 
               <div className="resource-bar">
-
                 <div className="fill medical-fill"></div>
-
               </div>
 
             </div>
@@ -428,66 +344,57 @@ function Dashboard() {
             <div className="resource">
 
               <div className="resource-title">
-
                 <span>Helicopters</span>
-
                 <span>62%</span>
-
               </div>
 
               <div className="resource-bar">
-
                 <div className="fill helicopter-fill"></div>
-
               </div>
 
             </div>
 
-          </div>
+          </section>
+
+          {/* ===========================
+                SYSTEM STATUS
+          ============================ */}
+
+          <section className="panel system-panel">
+
+            <div className="panel-header">
+
+              <h3>🛰 System Status</h3>
+
+              <span className="status live">
+                ONLINE
+              </span>
+
+            </div>
+
+            <SystemStatus />
+
+          </section>
 
         </div>
 
-      </div>
-      <div className="panel system-panel">
+      </main>
 
-    <div className="panel-header">
+      {/* ======================================================
+                     ANALYTICS FOOTER
+      ======================================================= */}
 
-        <h3>🛰 System Status</h3>
-
-        <span className="status live">
-            ONLINE
-        </span>
-
-    </div>
-
-    <SystemStatus/>
-
-</div>
-<div className="panel analytics-panel">
-
-    <div className="panel-header">
-
-        <h3>📈 Live Analytics</h3>
-
-        <span className="status live">
-            LIVE
-        </span>
-
-    </div>
-
-    <MiniAnalytics/>
-
-</div>
-
-      {/* Analytics Footer */}
-
-      <div className="analytics-footer">
+      <footer className="analytics-footer">
 
         <div className="analytics-card">
 
           <h4>Average Response Time</h4>
 
           <h2>4.2 Minutes</h2>
+
+          <span className="analytics-trend positive">
+            ▲ 12% Faster Today
+          </span>
 
         </div>
 
@@ -497,6 +404,10 @@ function Dashboard() {
 
           <h2>96.8%</h2>
 
+          <span className="analytics-trend positive">
+            ▲ +1.4%
+          </span>
+
         </div>
 
         <div className="analytics-card">
@@ -505,12 +416,18 @@ function Dashboard() {
 
           <h2>12,480</h2>
 
+          <span className="analytics-trend positive">
+            ▲ +2,186
+          </span>
+
         </div>
 
-      </div>
+      </footer>
 
     </section>
+
   );
+
 }
 
 export default Dashboard;

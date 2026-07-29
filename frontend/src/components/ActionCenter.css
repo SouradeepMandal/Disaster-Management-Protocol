@@ -1,14 +1,124 @@
-.action-center{
+/* ===========================================================
+   COMMAND CONSOLE
+=========================================================== */
+
+.command-console{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+}
+
+/* ===========================================================
+   HEADER
+=========================================================== */
+
+.console-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.console-header h2{
+    color:#fff;
+    font-size:1.2rem;
+    margin-bottom:4px;
+}
+
+.console-header span{
+    color:#9eb4cc;
+    font-size:.9rem;
+}
+
+.console-live{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#22c55e;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+.console-pulse{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#22c55e;
+    animation:consolePulse 1.6s infinite;
+}
+
+/* ===========================================================
+   COMMAND LIST
+=========================================================== */
+
+.command-list{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.command-card{
 
     display:flex;
+    justify-content:space-between;
+    align-items:center;
 
-    flex-direction:column;
+    padding:18px 20px;
 
-    gap:16px;
+    border-radius:18px;
+
+    border:none;
+
+    cursor:pointer;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.35s;
+
+    position:relative;
+
+    overflow:hidden;
 
 }
 
-.action-btn{
+.command-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.06),
+        transparent
+    );
+
+    transform:translateX(-100%);
+
+}
+
+.command-card:hover::before{
+
+    animation:consoleShine 1.2s linear;
+
+}
+
+.command-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#00d9ff;
+
+    box-shadow:0 0 20px rgba(0,217,255,.18);
+
+}
+
+.command-left{
 
     display:flex;
 
@@ -16,41 +126,13 @@
 
     gap:18px;
 
-    padding:18px;
-
-    width:100%;
-
-    border:none;
-
-    cursor:pointer;
-
-    border-radius:18px;
-
-    background:rgba(255,255,255,.04);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    color:white;
-
-    transition:.35s;
-
-    text-align:left;
-
 }
 
-.action-btn:hover{
+.command-icon{
 
-    transform:translateX(8px);
+    width:58px;
 
-}
-
-.action-icon{
-
-    width:55px;
-
-    height:55px;
-
-    border-radius:16px;
+    height:58px;
 
     display:flex;
 
@@ -58,92 +140,224 @@
 
     align-items:center;
 
-    font-size:1.3rem;
+    border-radius:16px;
+
+    background:rgba(0,217,255,.12);
+
+    color:#00d9ff;
+
+    font-size:1.5rem;
 
 }
 
-.action-text h4{
+.command-left h3{
 
-    margin-bottom:6px;
+    color:#fff;
 
-}
+    font-size:1rem;
 
-.action-text p{
-
-    color:#b9c5d8;
-
-    font-size:.9rem;
+    margin-bottom:5px;
 
 }
 
-.danger .action-icon{
+.command-left span{
 
-    background:#ef444420;
+    color:#9eb4cc;
 
-    color:#ef4444;
-
-}
-
-.warning .action-icon{
-
-    background:#f59e0b20;
-
-    color:#f59e0b;
+    font-size:.88rem;
 
 }
 
-.primary .action-icon{
+.command-right{
 
-    background:#2563eb20;
+    display:flex;
 
-    color:#38bdf8;
+    align-items:center;
 
-}
-
-.secondary .action-icon{
-
-    background:#8b5cf620;
-
-    color:#c084fc;
+    gap:14px;
 
 }
 
-.success .action-icon{
-
-    background:#22c55e20;
+.command-right svg:first-child{
 
     color:#22c55e;
 
-}
-
-.action-btn:hover.primary{
-
-    border-color:#38bdf8;
-
-    box-shadow:0 0 18px rgba(56,189,248,.25);
+    font-size:.75rem;
 
 }
 
-.action-btn:hover.warning{
+.command-right svg:last-child{
 
-    border-color:#f59e0b;
+    color:#00d9ff;
 
-}
-
-.action-btn:hover.success{
-
-    border-color:#22c55e;
+    font-size:1rem;
 
 }
 
-.action-btn:hover.danger{
+/* ===========================================================
+   STATUS COLORS
+=========================================================== */
 
-    border-color:#ef4444;
+.command-card.success{
+
+    border-left:5px solid #22c55e;
 
 }
 
-.action-btn:hover.secondary{
+.command-card.primary{
 
-    border-color:#c084fc;
+    border-left:5px solid #00d9ff;
+
+}
+
+.command-card.warning{
+
+    border-left:5px solid #f59e0b;
+
+}
+
+.command-card.danger{
+
+    border-left:5px solid #ef4444;
+
+}
+
+/* ===========================================================
+   FOOTER
+=========================================================== */
+
+.console-footer{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:18px;
+
+}
+
+.footer-card{
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    padding:20px;
+
+    text-align:center;
+
+    transition:.35s;
+
+}
+
+.footer-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#00d9ff;
+
+    box-shadow:0 0 18px rgba(0,217,255,.16);
+
+}
+
+.footer-card span{
+
+    display:block;
+
+    color:#9eb4cc;
+
+    margin-bottom:8px;
+
+}
+
+.footer-card h3{
+
+    color:#fff;
+
+    font-size:1.5rem;
+
+}
+
+/* ===========================================================
+   ANIMATIONS
+=========================================================== */
+
+@keyframes consolePulse{
+
+    0%{
+
+        box-shadow:0 0 0 0 rgba(34,197,94,.55);
+
+    }
+
+    70%{
+
+        box-shadow:0 0 0 12px rgba(34,197,94,0);
+
+    }
+
+    100%{
+
+        box-shadow:0 0 0 0 rgba(34,197,94,0);
+
+    }
+
+}
+
+@keyframes consoleShine{
+
+    from{
+
+        transform:translateX(-100%);
+
+    }
+
+    to{
+
+        transform:translateX(220%);
+
+    }
+
+}
+
+/* ===========================================================
+   RESPONSIVE
+=========================================================== */
+
+@media(max-width:900px){
+
+    .console-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .console-footer{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .command-card{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:18px;
+
+    }
+
+    .command-right{
+
+        width:100%;
+
+        justify-content:flex-end;
+
+    }
 
 }
